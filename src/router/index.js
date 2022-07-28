@@ -14,7 +14,7 @@ import ReactHooksCourses from "@/views/Courses/ReactHooksCourses.vue";
 import WelcomePage from "@/views/WelcomePage.vue";
 import Team from "@/views/Team.vue";
 
-import * as netlifyIdentityWidget from "netlify-identity-widget";
+import { auth } from "@/main";
 
 Vue.use(VueRouter);
 
@@ -98,7 +98,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = netlifyIdentityWidget.currentUser();
+  const currentUser = auth.currentUser();
   const requiresAuth = to.matched.some((record) => {
     return record.meta.requiresAuth;
   });

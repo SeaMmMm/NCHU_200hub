@@ -86,7 +86,12 @@
         </div>
         <div
           class="phoneMenuWrapper"
-          :class="{ 'show-visibale': isOpen, 'show-hidden': !isOpen }"
+          :class="{
+            'show-visibale': isOpen,
+            'show-hidden': !isOpen,
+            'nav-light': !isDarkMode,
+            'nav-dark': isDarkMode,
+          }"
         >
           <router-link
             to="/welcome"
