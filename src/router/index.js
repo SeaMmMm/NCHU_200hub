@@ -13,6 +13,7 @@ import ReactHooks from "@/views/CoursesHome/ReactHooks.vue";
 import ReactHooksCourses from "@/views/Courses/ReactHooksCourses.vue";
 import WelcomePage from "@/views/WelcomePage.vue";
 import Team from "@/views/Team.vue";
+import NewsHome from "@/views/News/NewsHome.vue";
 
 import { auth } from "@/main";
 
@@ -29,6 +30,12 @@ const routes = [
         path: "/team",
         name: "team",
         component: Team,
+      },
+      {
+        path: "/news",
+        name: "news",
+        component: NewsHome,
+        meta: { requiresAuth: true },
       },
       {
         path: "/video",

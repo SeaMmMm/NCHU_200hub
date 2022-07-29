@@ -7,9 +7,9 @@
           Hey,Welcome
         </div>
         <div id="ACenWrapper">纽约时报</div>
-        <div id="BCenWrapper">412 x 413 勉强打造</div>
+        <div id="BCenWrapper">412 x 413</div>
         <div id="CCenWrapper">Can Can Need</div>
-        <button><p>前往康康</p></button>
+        <button @click="gotoNews"><p>前往康康</p></button>
       </div>
       <div id="RightWrapper">
         <img id="fk2" src="@/assets/svg/Ilustra.svg" />
@@ -19,7 +19,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    gotoNews() {
+      this.$router.push("/news");
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 * {

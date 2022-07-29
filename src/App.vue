@@ -368,13 +368,13 @@ a {
   h2,
   h3 {
     margin-top: 50px;
-    color: #278ea5;
+    color: #1b7fbd;
   }
 
   p {
     text-align: left;
     font-size: 18px;
-    color: #5d5d5a;
+    color: #085f63;
   }
 
   a {
