@@ -5,7 +5,6 @@
       <button class="BUtton">
         <span class="back"> 更新中...</span>
       </button>
-      <img class="hands" src="@/assets/svg/hand.svg" />
     </div>
   </div>
 </template>
@@ -82,15 +81,6 @@ export default {
   @media (max-width: 900px) {
     font-size: 14px;
     line-height: 28px;
-  }
-}
-.hands {
-  position: absolute;
-  left: 30%;
-  @media (max-width: 900px) {
-    width: 100px;
-    left: -60px;
-    top: 10px;
   }
 }
 .BUtton:hover {

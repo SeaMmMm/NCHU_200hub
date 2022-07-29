@@ -3,7 +3,9 @@
     id="app"
     :class="{ 'light-background': !isDarkMode, 'dark-background': isDarkMode }"
   >
-    <router-view />
+    <keep-alive include="SignIn,Request">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
@@ -315,5 +317,343 @@ a {
 .dark-box {
   background: #c6d0eb40;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.Coding {
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 140%;
+  max-width: 712px;
+  margin: 0 auto;
+  text-align: start;
+  padding: 0px 20px 100px;
+
+  @media (max-width: 414px) {
+    font-size: 17px;
+  }
+
+  img,
+  video {
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  iframe {
+    margin: 20px 0;
+    width: 100%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  h2 {
+    padding: 20px 0;
+    font-size: 52px;
+    line-height: 120%;
+  }
+
+  h3 {
+    padding: 20px 0 0;
+    font-size: 34px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  h2,
+  h3 {
+    margin-top: 50px;
+    color: #278ea5;
+  }
+
+  p {
+    text-align: left;
+    font-size: 18px;
+    color: #5d5d5a;
+  }
+
+  a {
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    color: #1e2a78;
+  }
+
+  blockquote {
+    padding: 0 16px 0 50px;
+    background-repeat: no-repeat;
+    background-position: 14px 2px;
+    p {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 140%;
+    }
+  }
+
+  pre {
+    border-radius: 16px;
+  }
+
+  code {
+    font-size: 17px;
+    font-family: "SF Mono", -apple-system, system-ui, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  ol {
+    padding: 0;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 18px;
+    padding: 0 30px;
+
+    .Content {
+      margin: 50px 20px;
+    }
+    p {
+      font-size: 18px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    blockquote {
+      margin: 0;
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 414px) {
+    padding: 0 20px;
+    code {
+      font-size: 15px;
+    }
+    blockquote {
+      margin: 0;
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+
+  /* Theme */
+  code[class*="hljs"],
+  pre[class*="hljs"] {
+    border-radius: 16px;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    color: #eee;
+    background: #222;
+    line-height: 1.5em;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
+    @media (prefers-color-scheme: dark) {
+      background: #141432;
+    }
+  }
+
+  code[class*="hljs"]::-moz-selection,
+  pre[class*="hljs"]::-moz-selection,
+  code[class*="hljs"] ::-moz-selection,
+  pre[class*="hljs"] ::-moz-selection {
+    background: #363636;
+  }
+
+  code[class*="hljs"]::selection,
+  pre[class*="hljs"]::selection,
+  code[class*="hljs"] ::selection,
+  pre[class*="hljs"] ::selection {
+    background: #363636;
+  }
+
+  :not(pre) > code {
+    white-space: normal;
+    border-radius: 0.2em;
+    padding: 0.1em;
+  }
+
+  pre[class*="hljs"] {
+    overflow: auto;
+    position: relative;
+    margin: 0.5em 0;
+    padding: 1.25em 1em;
+  }
+
+  .language-css > code,
+  .language-sass > code,
+  .language-scss > code {
+    color: #fd9170;
+  }
+
+  [class*="hljs"] .namespace {
+    opacity: 0.7;
+  }
+
+  .markdown-body .atrule {
+    color: #c792ea;
+  }
+
+  .markdown-body .attr-name {
+    color: #ffcb6b;
+  }
+
+  .markdown-body .attr-value {
+    color: #a5e844;
+  }
+
+  .markdown-body .attribute {
+    color: #a5e844;
+  }
+
+  .markdown-body .boolean {
+    color: #c792ea;
+  }
+
+  .markdown-body .builtin {
+    color: #ffcb6b;
+  }
+
+  .markdown-body .cdata {
+    color: #80cbc4;
+  }
+
+  .markdown-body .char {
+    color: #80cbc4;
+  }
+
+  .markdown-body .class {
+    color: #ffcb6b;
+  }
+
+  .markdown-body .class-name {
+    color: #f2ff00;
+  }
+
+  .markdown-body .comment {
+    color: #616161;
+  }
+
+  .markdown-body .constant {
+    color: #c792ea;
+  }
+
+  .markdown-body .deleted {
+    color: #ff6666;
+  }
+
+  .markdown-body .doctype {
+    color: #616161;
+  }
+
+  .markdown-body .entity {
+    color: #ff6666;
+  }
+
+  .markdown-body .function {
+    color: #c792ea;
+  }
+
+  .markdown-body .hexcode {
+    color: #f2ff00;
+  }
+
+  .markdown-body .id {
+    color: #c792ea;
+    font-weight: bold;
+  }
+
+  .markdown-body .important {
+    color: #c792ea;
+    font-weight: bold;
+  }
+
+  .markdown-body .inserted {
+    color: #80cbc4;
+  }
+
+  .markdown-body .keyword {
+    color: #c792ea;
+  }
+
+  .markdown-body .number {
+    color: #fd9170;
+  }
+
+  .markdown-body .operator {
+    color: #89ddff;
+  }
+
+  .markdown-body .prolog {
+    color: #616161;
+  }
+
+  .markdown-body .property {
+    color: #80cbc4;
+  }
+
+  .markdown-body .pseudo-class {
+    color: #a5e844;
+  }
+
+  .markdown-body .pseudo-element {
+    color: #a5e844;
+  }
+
+  .markdown-body .punctuation {
+    color: #89ddff;
+  }
+
+  .markdown-body .regex {
+    color: #f2ff00;
+  }
+
+  .markdown-body .selector {
+    color: #ff6666;
+  }
+
+  .markdown-body .string {
+    color: #a5e844;
+  }
+
+  .markdown-body .symbol {
+    color: #c792ea;
+  }
+
+  .markdown-body .tag {
+    color: #ff6666;
+  }
+
+  .markdown-body .unit {
+    color: #fd9170;
+  }
+
+  .markdown-body .url {
+    color: #ff6666;
+  }
+
+  .markdown-body .variable {
+    color: #ff6666;
+  }
 }
 </style>

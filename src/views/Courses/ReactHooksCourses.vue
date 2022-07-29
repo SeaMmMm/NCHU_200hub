@@ -91,10 +91,7 @@
           allowDrop
         ></iframe>
       </div>
-      <markdown-it-vue
-        :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
-        :content="contents[0].content"
-      />
+      <markdown-it-vue :content="contents[0].content" />
     </div>
   </div>
 </template>
