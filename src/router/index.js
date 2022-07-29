@@ -14,6 +14,7 @@ import ReactHooksCourses from "@/views/Courses/ReactHooksCourses.vue";
 import WelcomePage from "@/views/WelcomePage.vue";
 import Team from "@/views/Team.vue";
 import NewsHome from "@/views/News/NewsHome.vue";
+import Certificate from "@/views/PayUs/Certificate.vue";
 
 import { auth } from "@/main";
 
@@ -78,6 +79,11 @@ const routes = [
         component: VueDesignerCourses,
       },
     ],
+  },
+  {
+    path: "/pay",
+    name: "pay",
+    component: Certificate,
   },
   {
     path: "/recover",

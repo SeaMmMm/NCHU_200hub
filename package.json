@@ -15,6 +15,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.9",
     "gotrue-js": "^0.9.29",
+    "html2canvas": "^1.4.1",
     "markdown-it-vue": "^1.1.7",
     "netlify-identity-widget": "^1.9.2",
     "netlify-lambda": "^2.0.15",

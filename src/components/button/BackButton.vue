@@ -2,7 +2,7 @@
   <div id="Wrapper" @click="prev">
     <div id="ContentWrapper">
       <div id="Text">返回</div>
-      <img src="@/img/cheked.svg" alt="return" />
+      <img src="@/assets/svg/cheked.svg" alt="return" />
     </div>
   </div>
 </template>
@@ -47,5 +47,6 @@ export default {
   font-weight: 400;
   font-size: 17px;
   line-height: 130%;
+  color: #192f60;
 }
 </style>

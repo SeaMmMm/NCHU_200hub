@@ -18,33 +18,34 @@
         style="top: 550px"
       />
     </div>
+    <div class="SearchBox">
+      <div class="inputWrapper">
+        <el-select
+          size="small"
+          style="z-index: 1100"
+          v-model="value"
+          placeholder="选择分类"
+        >
+          <el-option v-for="item in options" :key="item" :value="item">
+          </el-option>
+        </el-select>
+        <input
+          style="z-index: 1100; width: 300px"
+          type="text"
+          v-model="searchText"
+          class="SearchButton"
+          placeholder="搜索"
+        />
+        <img
+          style="z-index: 1000"
+          src="@/assets/icons/search-dark.svg"
+          @click="Search"
+          alt="search"
+        />
+      </div>
+    </div>
     <div class="container">
       <div class="cards">
-        <div class="SearchBox">
-          <div class="inputWrapper">
-            <el-select v-model="value" clearable placeholder="请选择">
-              <el-option
-                style="color: black"
-                v-for="item in options"
-                :key="item"
-                :value="item"
-              >
-              </el-option>
-            </el-select>
-            <input
-              style="z-index: 1100"
-              type="text"
-              v-model="searchText"
-              class="SearchButton"
-              placeholder="搜索"
-            />
-            <img
-              src="@/assets/icons/search-dark.svg"
-              @click="Search"
-              alt="search"
-            />
-          </div>
-        </div>
         <template v-for="(content, index) in contents">
           <transition
             :key="content.title"
@@ -291,8 +292,9 @@ export default {
     },
   },
   created() {
-    this.$message({
-      message: "本网页需 vpn 才能正常访问",
+    this.$notify({
+      title: "警告",
+      message: "本网页需挂载vpn 才能正常使用",
       type: "warning",
     });
     axios
@@ -312,21 +314,23 @@ export default {
   },
   watch: {
     value(newValue) {
-      this.contents = null;
-      this.searchContents = null;
-      axios
-        .get(
-          `https://api.nytimes.com/svc/topstories/v2/${newValue}.json?api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V`
-        )
-        .then((res) => {
-          this.sortContents = res.data.results;
-        })
-        .catch((error) => {
-          this.$notify.error({
-            title: "错误",
-            message: error.message,
+      if (this.value !== "") {
+        this.contents = null;
+        this.searchContents = null;
+        axios
+          .get(
+            `https://api.nytimes.com/svc/topstories/v2/${newValue}.json?api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V`
+          )
+          .then((res) => {
+            this.sortContents = res.data.results;
+          })
+          .catch((error) => {
+            this.$notify.error({
+              title: "错误",
+              message: error.message,
+            });
           });
-        });
+      }
     },
   },
   methods: {
@@ -337,6 +341,7 @@ export default {
       this.contents = null;
       this.sortContents = null;
       this.searchContents = null;
+      this.value = "";
       const searchText = this.searchText;
       axios
         .get(
@@ -382,9 +387,7 @@ export default {
   font-size: 10px;
 }
 .SearchBox {
-  z-index: 900;
-  position: absolute;
-  right: 0;
+  margin-top: 100px;
   .SearchButton {
     background: linear-gradient(
       180deg,
@@ -422,7 +425,6 @@ export default {
     border-radius: 50px;
     &:hover {
       background: rgba(255, 255, 255, 0.1);
-      border: 0.5px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }

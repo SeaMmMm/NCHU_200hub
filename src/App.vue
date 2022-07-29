@@ -193,6 +193,25 @@ h1.light {
   @include heading-3($white);
 }
 
+li {
+  background: #0052d4; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(0, 82, 212),
+    rgb(67, 100, 247),
+    rgb(111, 177, 252)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgb(0, 82, 212),
+    rgb(67, 100, 247),
+    rgb(111, 177, 252)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 h4 {
   margin: 0;
   line-height: 34px;

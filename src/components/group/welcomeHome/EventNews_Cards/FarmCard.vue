@@ -16,12 +16,12 @@
             <div class="topdescription">加入NCHU_200hub</div>
             <div class="topdescription">强强联手，源于我们，服务我们</div>
           </div>
-          <div class="ButtonWrapperFarmCard">
+          <router-link to="/pay" class="ButtonWrapperFarmCard">
             <div class="ButtonContentWrapperFarmCard">
               <div class="showMore">感谢金主😍</div>
               <img src="@/assets/svg/to.svg" alt="to" />
             </div>
-          </div>
+          </router-link>
         </div>
         <img class="right" src="@/assets/svg/rightFarmImage.svg" alt="right" />
       </div>
