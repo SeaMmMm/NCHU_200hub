@@ -89,6 +89,7 @@ import ChangePage from "@/components/button/ChangePage.vue";
 export default {
   async created() {
     this.total = Number(this.$route.query.total);
+    this.index = Number(this.$route.query.index);
 
     if (window.localStorage.getItem("email") !== null) {
       this.isPro = true;

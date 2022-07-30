@@ -407,7 +407,7 @@ a {
     text-decoration: none !important;
     font-weight: 600 !important;
     color: #1e2a78;
-    font-size: 24px;
+    font-size: 20px;
     font-family: "LingWai SC", "Cascadia Code";
   }
 
