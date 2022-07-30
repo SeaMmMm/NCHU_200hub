@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -194,6 +194,9 @@ h1.light {
 }
 
 li {
+  font-family: "HanziPen SC";
+  font-size: 22px;
+  font-weight: 800;
   background: #0052d4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -388,18 +391,24 @@ a {
   h3 {
     margin-top: 50px;
     color: #1b7fbd;
+    font-weight: 700;
+    font-family: "HanziPen SC";
   }
 
   p {
     text-align: left;
-    font-size: 18px;
-    color: #085f63;
+    font-size: 20px;
+    color: #537791;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   a {
     text-decoration: none !important;
     font-weight: 600 !important;
     color: #1e2a78;
+    font-size: 24px;
+    font-family: "LingWai SC", "Cascadia Code";
   }
 
   blockquote {
@@ -419,8 +428,7 @@ a {
 
   code {
     font-size: 17px;
-    font-family: "SF Mono", -apple-system, system-ui, BlinkMacSystemFont,
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Cascadia Code";
     font-weight: 500;
   }
 
@@ -529,149 +537,149 @@ a {
     opacity: 0.7;
   }
 
-  .markdown-body .atrule {
+  .hljs .atrule {
     color: #c792ea;
   }
 
-  .markdown-body .attr-name {
+  .hljs .attr-name {
     color: #ffcb6b;
   }
 
-  .markdown-body .attr-value {
+  .hljs .attr-value {
     color: #a5e844;
   }
 
-  .markdown-body .attribute {
+  .hljs .attribute {
     color: #a5e844;
   }
 
-  .markdown-body .boolean {
+  .hljs .boolean {
     color: #c792ea;
   }
 
-  .markdown-body .builtin {
+  .hljs .builtin {
     color: #ffcb6b;
   }
 
-  .markdown-body .cdata {
+  .hljs .cdata {
     color: #80cbc4;
   }
 
-  .markdown-body .char {
+  .hljs .char {
     color: #80cbc4;
   }
 
-  .markdown-body .class {
+  .hljs .class {
     color: #ffcb6b;
   }
 
-  .markdown-body .class-name {
+  .hljs .class-name {
     color: #f2ff00;
   }
 
-  .markdown-body .comment {
+  .hljs .comment {
     color: #616161;
   }
 
-  .markdown-body .constant {
+  .hljs .constant {
     color: #c792ea;
   }
 
-  .markdown-body .deleted {
+  .hljs .deleted {
     color: #ff6666;
   }
 
-  .markdown-body .doctype {
+  .hljs .doctype {
     color: #616161;
   }
 
-  .markdown-body .entity {
+  .hljs .entity {
     color: #ff6666;
   }
 
-  .markdown-body .function {
+  .hljs .function {
     color: #c792ea;
   }
 
-  .markdown-body .hexcode {
+  .hljs .hexcode {
     color: #f2ff00;
   }
 
-  .markdown-body .id {
+  .hljs .id {
     color: #c792ea;
     font-weight: bold;
   }
 
-  .markdown-body .important {
+  .hljs .important {
     color: #c792ea;
     font-weight: bold;
   }
 
-  .markdown-body .inserted {
+  .hljs .inserted {
     color: #80cbc4;
   }
 
-  .markdown-body .keyword {
+  .hljs .keyword {
     color: #c792ea;
   }
 
-  .markdown-body .number {
+  .hljs .number {
     color: #fd9170;
   }
 
-  .markdown-body .operator {
+  .hljs .operator {
     color: #89ddff;
   }
 
-  .markdown-body .prolog {
+  .hljs .prolog {
     color: #616161;
   }
 
-  .markdown-body .property {
+  .hljs .property {
     color: #80cbc4;
   }
 
-  .markdown-body .pseudo-class {
+  .hljs .pseudo-class {
     color: #a5e844;
   }
 
-  .markdown-body .pseudo-element {
+  .hljs .pseudo-element {
     color: #a5e844;
   }
 
-  .markdown-body .punctuation {
+  .hljs .punctuation {
     color: #89ddff;
   }
 
-  .markdown-body .regex {
+  .hljs .regex {
     color: #f2ff00;
   }
 
-  .markdown-body .selector {
+  .hljs .selector {
     color: #ff6666;
   }
 
-  .markdown-body .string {
+  .hljs .string {
     color: #a5e844;
   }
 
-  .markdown-body .symbol {
+  .hljs .symbol {
     color: #c792ea;
   }
 
-  .markdown-body .tag {
+  .hljs .tag {
     color: #ff6666;
   }
 
-  .markdown-body .unit {
+  .hljs .unit {
     color: #fd9170;
   }
 
-  .markdown-body .url {
+  .hljs .url {
     color: #ff6666;
   }
 
-  .markdown-body .variable {
+  .hljs .variable {
     color: #ff6666;
   }
 }

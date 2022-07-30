@@ -1,5 +1,5 @@
 <template>
-  <CourseTemplate :contents="contents" where="vue_desingers_course" />
+  <CourseTemplate :contents="contents" where="figma_system_course" />
 </template>
 
 <script>
@@ -8,19 +8,6 @@ import CourseTemplate from "@/views/Courses/CourseTemplate.vue";
 export default {
   async created() {
     this.contents = await this.getcartoonUrl();
-
-    this.total = Number(this.$route.query.total);
-
-    if (window.localStorage.getItem("email") !== null) {
-      this.isPro = true;
-    }
-
-    this.randomWave3 = Math.floor(Math.random() * 3 + 1);
-    this.randomWave5 = Math.floor(Math.random() * 4 + 1);
-
-    if (document.body.clientWidth < 900) {
-      this.isOnComputer = false;
-    }
   },
   components: { CourseTemplate },
   data() {
@@ -30,10 +17,10 @@ export default {
   },
   methods: {
     async getcartoonUrl() {
-      const index = this.$route.query.index;
-      this.index = Number(index);
+      const index = Number(this.$route.query.index);
+      this.index = index;
       const query = `{
-        vueForDesignerCollection(where: {AND: [{index: ${index} }]}) {
+        figmaSystemCollection(where: {AND: [{index: ${index} }]}) {
           items {
             title
             index
@@ -61,7 +48,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.vueForDesignerCollection.items;
+        return response.data.figmaSystemCollection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }

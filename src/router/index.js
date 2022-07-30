@@ -15,6 +15,8 @@ import WelcomePage from "@/views/WelcomePage.vue";
 import Team from "@/views/Team.vue";
 import NewsHome from "@/views/News/NewsHome.vue";
 import Certificate from "@/views/PayUs/Certificate.vue";
+import Figma_system from "@/views/CoursesHome/Figma_system.vue";
+import FigmaSystem from "@/views/Courses/FigmaSystem.vue";
 
 import { auth } from "@/main";
 
@@ -77,6 +79,16 @@ const routes = [
         path: "/vue_desingers_course",
         name: "vue_desingers_course",
         component: VueDesignerCourses,
+      },
+      {
+        path: "/figma_system",
+        name: "figma_system",
+        component: Figma_system,
+      },
+      {
+        path: "/figma_system_course",
+        name: "figma_system_course",
+        component: FigmaSystem,
       },
     ],
   },
