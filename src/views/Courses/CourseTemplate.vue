@@ -72,6 +72,7 @@
       </div>
     </div>
     <div v-show="isPro" class="Coding">
+      <slot></slot>
       <markdown-it-vue
         :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
         :content="contents[0].content"

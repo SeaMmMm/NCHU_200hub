@@ -24,7 +24,7 @@
           <input
             style="z-index: 1100"
             type="text"
-            v-model="searchText"
+            v-model.trim="searchText"
             class="SearchButton"
             placeholder="搜索"
           />

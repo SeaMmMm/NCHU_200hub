@@ -29,7 +29,7 @@
           <input
             style="z-index: 1100"
             type="text"
-            v-model="searchText"
+            v-model.trim="searchText"
             class="SearchButton"
             placeholder="搜索"
           />
@@ -46,7 +46,7 @@
               :style="
                 'cursor: pointer; z-index: 1000;' +
                 'animation-delay:' +
-                (index + 1) * 0.5 +
+                (index + 1) * 0.18 +
                 's'
               "
               :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
@@ -119,9 +119,6 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    handleScroll() {
-      this.currentScroll = window.pageYOffset; //表示当前滚动的位置
-    },
     goCourses(url) {
       this.$router.push(url);
     },

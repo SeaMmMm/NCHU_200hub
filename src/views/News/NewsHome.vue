@@ -231,7 +231,7 @@
       </div>
     </div>
     <img
-      class="waves"
+      class="waves bottomWave"
       src="@/assets/waves/courses-wave4.svg"
       style="top: 750px"
     />
@@ -406,16 +406,20 @@ export default {
     }
   }
 }
-
+.bottomWave {
+  @media (max-width: 900px) {
+    height: 250px;
+  }
+}
 .inputWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
   @media (max-width: 900px) {
-    grid-template-columns: 100px 160px 30px;
-    align-items: default;
-    justify-items: default;
+    grid-template-columns: repeat(1, auto);
+    justify-items: start;
+    padding-left: 20px;
     gap: 15px;
   }
   gap: 20px;

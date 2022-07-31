@@ -60,17 +60,9 @@ export default {
     },
   },
   methods: {
-    openNetlify() {
-      this.$notify({
-        title: "切记",
-        message: "此处只适用于注册,别在这儿登录",
-        type: "warning",
-      });
-      NetlifyIdentityWidget.open();
-    },
     onSubmit() {
       const email = this.email;
-      /* 发送到slack上面有问题（因为更新了有些东西后面再改吧
+      /* 发送到slack上面有问题 -> 更新了有些东西,后面再改
       // Slack API logic
       let slackURL = new URL("https://slack.com/api/chat.postMessage");
       const data = {
