@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
-import VideoHome from "@/views/VideoHome.vue";
+// import VideoHome from "@/views/VideoHome.vue";
+import HoverCard from "@/views/OtherPages/HoverCard/HoverCard.vue";
 import SignIn from "@/views/SignIn.vue";
 import Recover from "@/views/Recover.vue";
 import Request from "@/views/Request.vue";
@@ -40,10 +41,15 @@ const routes = [
         component: NewsHome,
         meta: { requiresAuth: true },
       },
+      // {
+      //   path: "/video",
+      //   name: "video",
+      //   component: VideoHome,
+      // },
       {
-        path: "/video",
-        name: "video",
-        component: VideoHome,
+        path: "/other",
+        name: "other",
+        component: HoverCard,
       },
       {
         path: "/welcome",

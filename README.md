@@ -4,7 +4,7 @@
 
 ![GitShowImage/home.png](GitShowImage/home.png)
 
-- **电影界面**
+- **电影界面** `还没做`
 
 ![GitShowImage/video1.png](GitShowImage/video1.png)
 

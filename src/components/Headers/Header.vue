@@ -36,11 +36,17 @@
         class="buttonHover modeText"
         >🏠 首页</router-link
       >
-      <router-link
+      <!-- <router-link
         to="/video"
         :class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }"
         class="buttonHover modeText"
         >🥵 开冲</router-link
+      > -->
+      <router-link
+        to="/other"
+        :class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }"
+        class="buttonHover modeText"
+        >👾 其他</router-link
       >
       <router-link
         to="/team"
@@ -99,11 +105,17 @@
             class="modeText"
             >🏠 首页</router-link
           >
-          <router-link
+          <!-- <router-link
             to="/video"
             :class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }"
             class="modeText"
             >🥵 开冲</router-link
+          > -->
+          <router-link
+            to="/other"
+            :class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }"
+            class="buttonHover modeText"
+            >👾 其他</router-link
           >
           <router-link
             to="/team"
