@@ -8,8 +8,7 @@
           :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
           class="intersting"
         >
-          Something <br />
-          Interesting
+          <span class="text">{{ showText }}</span>
         </div>
         <div class="poem">
           <div
@@ -99,6 +98,10 @@ export default {
     if (document.body.clientWidth <= 900) {
       this.isOnComputer = false;
     }
+    this.changeText();
+  },
+  watch: {
+    showText() {},
   },
   methods: {
     getcartoonUrl: async () => {
@@ -136,12 +139,41 @@ export default {
         throw new Error("Could not receive the data from Contentful!");
       }
     },
+    changeText() {
+      var text = [
+        "佩洛西能不能滚出台湾😅",
+        "微博贴吧b站都崩了",
+        "我愿称之为崩坏3",
+      ];
+      var index = 0,
+        temp = 0,
+        toggle = true;
+
+      setInterval(() => {
+        if (toggle) {
+          this.showText = text[temp].slice(0, ++index);
+        } else {
+          this.showText = text[temp].slice(0, index--);
+        }
+
+        if (index == text[temp].length + 3) {
+          toggle = false;
+        } else if (index == 0) {
+          toggle = true;
+          temp++;
+          if (temp >= text.length) {
+            temp = 0;
+          }
+        }
+      }, 150);
+    },
   },
 
   data() {
     return {
       isOnComputer: true,
       cartoonUrls: [],
+      showText: null,
     };
   },
   computed: {
@@ -155,6 +187,35 @@ export default {
 <style scoped lang="scss">
 @import "@/global-styles/colors.scss";
 @import "@/global-styles/typography.scss";
+
+.text {
+  display: inline-block;
+  position: relative;
+}
+.text::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 5px;
+  height: 50px;
+  width: 3px;
+  background-color: #fff;
+  animation: san 1s steps(1) infinite;
+  @media (max-width: 900px) {
+    height: 25px;
+    width: 1px;
+  }
+}
+@keyframes san {
+  0%,
+  100% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: transparent;
+  }
+}
+
 .onPhonButton {
   transform: scale(0.8);
   margin-top: 40px;
@@ -235,16 +296,18 @@ export default {
       }
 
       .intersting {
-        font-family: "Cascadia Code";
+        font-family: "HanziPen SC";
         font-style: normal;
         font-weight: 700;
-        font-size: 58px;
+        font-size: 50px;
         line-height: 58px;
         animation: Op 1s forwards;
         animation-delay: 0.4s;
         opacity: 0;
         @media (max-width: 900px) {
-          font-size: 30px;
+          font-size: 15px;
+          line-height: 40px;
+          width: 220px;
         }
       }
 

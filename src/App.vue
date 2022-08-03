@@ -31,6 +31,16 @@ export default {
    v2.0 | 20110126
    License: none (public domain)
 */
+
+@font-face {
+  font-family: "HanziPen SC";
+  src: url("@/assets/hanzipen-sc.ttf") format("truetype");
+}
+@font-face {
+  font-family: "LingWai SC";
+  src: url("@/assets/LingWaiSC.ttf") format("truetype");
+}
+
 @import "@/global-styles/colors.scss";
 @import "@/global-styles/typography.scss";
 * {
@@ -375,13 +385,13 @@ a {
 
   h2 {
     padding: 20px 0;
-    font-size: 52px;
+    font-size: 32px;
     line-height: 120%;
   }
 
   h3 {
     padding: 20px 0 0;
-    font-size: 34px;
+    font-size: 25px;
     text-transform: uppercase;
     font-weight: 500;
     opacity: 0.7;
@@ -520,7 +530,7 @@ a {
     padding: 0.1em;
   }
 
-  pre[class*="hljs"] {
+  pre[class*="markdown-body"] {
     overflow: auto;
     position: relative;
     margin: 0.5em 0;
@@ -533,7 +543,7 @@ a {
     color: #fd9170;
   }
 
-  [class*="hljs"] .namespace {
+  [class*="markdown-body"] .namespace {
     opacity: 0.7;
   }
 

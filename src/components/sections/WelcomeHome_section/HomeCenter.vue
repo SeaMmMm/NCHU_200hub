@@ -2,14 +2,21 @@
   <div class="AboutWrapper">
     <div class="AboutContent">
       <div class="aboutTop">
-        <router-link to="/signin" class="search">
+        <router-link v-show="!isLogged" to="/signin" class="search">
           <img src="@/assets/svg/search.svg" alt="search" />
           <div class="signText">注册</div>
         </router-link>
-        <router-link to="/signin" class="signIn">
+        <router-link v-show="!isLogged" to="/signin" class="signIn">
           <img src="@/assets/svg/user.svg" alt="user" />
-          <div class="signText">登陆</div>
+          <div class="signText">登录</div>
         </router-link>
+        <div
+          v-show="isLogged"
+          :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
+          class="signText"
+        >
+          Welcome
+        </div>
       </div>
       <div class="aboutCenter">
         <div class="title">CanCanNeed</div>
@@ -39,16 +46,32 @@
 
 <script>
 export default {
+  created() {
+    if (localStorage.getItem("email") === null) {
+      this.isLogged = false;
+    } else {
+      this.isLogged = true;
+    }
+  },
   data() {
     return {
       texts: ["Have fun!", "take easy", "wdnmd"],
+      isLogged: null,
     };
+  },
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/global-styles/mixin.scss";
+@import "@/global-styles/colors.scss";
+@import "@/global-styles/typography.scss";
+
 .rock {
   position: absolute;
   top: 0;
@@ -127,7 +150,6 @@ export default {
       font-weight: 400;
       font-size: 32px;
       line-height: 32px;
-      color: #775ada;
       @media (max-width: 900px) {
         font-weight: 400;
         font-size: 22px;
