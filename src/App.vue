@@ -31,6 +31,12 @@ export default {
    v2.0 | 20110126
    License: none (public domain)
 */
+
+@font-face {
+  font-family: "HanziPen SC";
+  src: url("@/assets/hanzipen-sc.ttf") format("truetype");
+}
+
 @import "@/global-styles/colors.scss";
 @import "@/global-styles/typography.scss";
 * {
