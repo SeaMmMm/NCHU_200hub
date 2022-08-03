@@ -142,8 +142,15 @@ export default {
     changeText() {
       var text = [
         "佩洛西能不能滚出台湾😅",
-        "微博贴吧b站都崩了",
-        "我愿称之为崩坏3",
+        "灯火万家城四畔,星河一道水中央",
+        "十里寒潭路,烟花一半醒",
+        "城上春雨覆宛墙,江亭晚色静年芳",
+        "至今窥牧马，不敢过临洮",
+        "若耶溪傍采莲女，笑隔荷花共人语",
+        "胜地不常，盛筵难再",
+        "兰亭已矣，梓泽丘墟",
+        "铁马红旗寒日暮，使君犹寄边城",
+        "中秋谁与共孤光。把盏凄然北望",
       ];
       var index = 0,
         temp = 0,
@@ -165,7 +172,10 @@ export default {
             temp = 0;
           }
         }
-      }, 150);
+      }, 120);
+    },
+    beforeDestroy() {
+      clearInterval(this.changeText);
     },
   },
 
@@ -299,7 +309,7 @@ export default {
         font-family: "HanziPen SC";
         font-style: normal;
         font-weight: 700;
-        font-size: 50px;
+        font-size: 35px;
         line-height: 58px;
         animation: Op 1s forwards;
         animation-delay: 0.4s;
@@ -307,7 +317,7 @@ export default {
         @media (max-width: 900px) {
           font-size: 15px;
           line-height: 40px;
-          width: 220px;
+          width: 500px;
         }
       }
 

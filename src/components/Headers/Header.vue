@@ -1,6 +1,6 @@
 <template>
   <div
-    style="position: fixed; z-index: 1200"
+    style="z-index: 1200"
     id="nav"
     :class="{ 'nav-light': !isDarkMode, 'nav-dark': isDarkMode }"
   >
