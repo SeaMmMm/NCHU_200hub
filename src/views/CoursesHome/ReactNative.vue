@@ -17,11 +17,6 @@
         src="@/assets/waves/hero-wave3.svg"
         style="top: 550px"
       />
-      <img
-        class="waves"
-        src="@/assets/waves/footer-wave1.svg"
-        style="top: 750px"
-      />
     </div>
     <div class="container">
       <div class="cards">
@@ -35,47 +30,46 @@
           />
         </div>
         <template v-for="(content, index) in contentsTemplate">
-          <transition
-            :key="content.url"
-            appear
-            appear-active-class="animate__animated animate__zoomIn"
-            leave-active-class="animate__animated animate__zoomOut"
+          <a
+            :key="content.title"
+            class="card"
+            :style="
+              'cursor: pointer; z-index: 1000;' +
+              'animation-delay:' +
+              (index + 1) * 0.5 +
+              's'
+            "
+            :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+            @click="goTeams(content.index, contents.length)"
           >
-            <a
-              class="card"
-              :style="
-                'cursor: pointer; z-index: 1000;' +
-                'animation-delay:' +
-                (index + 1) * 0.18 +
-                's'
-              "
-              :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
-              @click="goCourses(content.where)"
+            <img
+              :src="content.illustration.url"
+              class="card-header"
+              :class="{
+                'light-header': !isDarkMode,
+                'dark-header': isDarkMode,
+              }"
+            />
+            <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
+              {{ content.title }}
+            </h3>
+            <p
+              :class="{
+                'light-text': isDarkMode,
+                'dark-text': !isDarkMode,
+              }"
             >
-              <img
-                :src="content.illustration.url"
-                class="card-header"
-                :class="{
-                  'light-header': !isDarkMode,
-                  'dark-header': isDarkMode,
-                }"
-              />
-              <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
-                {{ content.title }}
-              </h3>
-              <p
-                :class="{
-                  'light-text': isDarkMode,
-                  'dark-text': !isDarkMode,
-                }"
-              >
-                {{ content.description }}
-              </p>
-            </a>
-          </transition>
+              {{ content.description }}
+            </p>
+          </a>
         </template>
       </div>
     </div>
+    <img
+      class="waves"
+      src="@/assets/waves/footer-wave1.svg"
+      style="top: 750px"
+    />
   </div>
 </template>
 
@@ -89,9 +83,9 @@ export default {
   },
   data() {
     return {
+      searchText: "",
       currentScroll: 0,
       contents: [],
-      searchText: "",
     };
   },
   computed: {
@@ -110,33 +104,34 @@ export default {
     },
   },
   async created() {
-    this.contents = await this.getContents();
-  },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
+    this.contents = await this.getcartoonUrl();
+    this.contents.sort((a, b) => {
+      return a.index - b.index;
+    });
   },
   methods: {
-    goCourses(url) {
-      this.$router.push(url);
+    goTeams(index, total) {
+      this.$router.push({
+        name: "ReactNativeCourses",
+        query: {
+          index: index,
+          total: total,
+        },
+      });
     },
-    getContents: async () => {
+    getcartoonUrl: async () => {
       const query = `{
-        courseCardsCollection{
-          total
+        reactNativeCollection{
           items{
-            title
-            description
-            where
             illustration{
               url
             }
+            index,
+            title,
+            description,
           }
         }
-      }
-      `;
+      }`;
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`;
 
       const fetchOptions = {
@@ -152,7 +147,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.courseCardsCollection.items;
+        return response.data.reactNativeCollection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }
@@ -196,7 +191,7 @@ export default {
   }
   .Background {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
     z-index: 10;
@@ -231,6 +226,7 @@ export default {
 .card {
   width: 100%;
   max-width: 300px;
+  height: 480px;
   border-radius: 10px;
   margin: 20px;
   margin-top: 100px;

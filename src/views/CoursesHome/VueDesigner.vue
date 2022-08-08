@@ -72,8 +72,8 @@
 import Courses from "@/views/Courses/ReactCourses.vue";
 import "markdown-it-vue/dist/markdown-it-vue.css";
 export default {
-  name: "Team",
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     Courses,
   },
   data() {

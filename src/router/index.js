@@ -18,6 +18,8 @@ import NewsHome from "@/views/News/NewsHome.vue";
 import Certificate from "@/views/PayUs/Certificate.vue";
 import Figma_system from "@/views/CoursesHome/Figma_system.vue";
 import FigmaSystem from "@/views/Courses/FigmaSystem.vue";
+import ReactNative from "@/views/CoursesHome/ReactNative.vue";
+import ReactNativeCourses from "@/views/Courses/ReactNativeCourses.vue";
 
 import { auth } from "@/main";
 
@@ -65,6 +67,16 @@ const routes = [
         path: "/advanced_hooks",
         name: "advanced_hooks",
         component: ReactHooks,
+      },
+      {
+        path: "/react-native",
+        name: "ReactNative",
+        component: ReactNative,
+      },
+      {
+        path: "/react_native_course",
+        name: "ReactNativeCourses",
+        component: ReactNativeCourses,
       },
       {
         path: "/vue_designer",
