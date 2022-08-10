@@ -1,15 +1,20 @@
 <template>
-  <CourseTemplate :contents="contents" where="advanced_react_course" />
+  <CourseTemplate :contents="contents" where="advanced_react_course">
+    <Video
+      src="https://www.youtube.com/embed/WfCxdlkFzFk?list=PLn8_GKQGufjklqoAHsBgyfeX0jedV0Uo7"
+    />
+  </CourseTemplate>
 </template>
 
 <script>
 import CourseTemplate from "@/views/Courses/CourseTemplate.vue";
+import Video from "@/views/Courses/Video.vue";
 
 export default {
   async created() {
     this.contents = await this.getcartoonUrl();
   },
-  components: { CourseTemplate },
+  components: { CourseTemplate, Video },
   data() {
     return {
       contents: [],

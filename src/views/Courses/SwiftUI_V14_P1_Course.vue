@@ -20,7 +20,7 @@ export default {
       const index = Number(this.$route.query.index);
       this.index = index;
       const query = `{
-        figmaSystemCollection(where: {AND: [{index: ${index} }]}) {
+        swiftUiV14P1Collection(where: {AND: [{index: ${index} }]}) {
           items {
             title
             index
@@ -48,7 +48,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.figmaSystemCollection.items;
+        return response.data.swiftUiV14P1Collection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }

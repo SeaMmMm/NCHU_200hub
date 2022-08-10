@@ -205,8 +205,8 @@ h1.light {
 
 li {
   font-family: "HanziPen SC";
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 400;
   background: #0052d4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -288,7 +288,7 @@ a {
 
 /* THEME */
 .light-background {
-  background-color: #f8f9fa;
+  background-color: rgb(242, 246, 255);
 
   line,
   text {

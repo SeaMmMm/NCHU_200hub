@@ -1,9 +1,5 @@
 <template>
-  <div
-    style="z-index: 1200"
-    id="nav"
-    :class="{ 'nav-light': !isDarkMode, 'nav-dark': isDarkMode }"
-  >
+  <div id="nav" :class="{ 'nav-light': !isDarkMode, 'nav-dark': isDarkMode }">
     <div
       v-show="isOnComputer"
       :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
@@ -158,7 +154,6 @@ import ThemeSwitch from "@/components/button/ThemeSwitch.vue";
 import { auth } from "@/main";
 
 export default {
-  name: "Header",
   components: { ThemeSwitch },
   computed: {
     isDarkMode() {
@@ -198,7 +193,7 @@ export default {
       const user = auth.currentUser();
       window.localStorage.clear();
 
-      user.logout().then((res) => {
+      user.logout().then(() => {
         this.$router
           .push({
             name: "signin",
@@ -317,7 +312,6 @@ export default {
 #nav {
   z-index: 1100;
   padding: 25px;
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -328,6 +322,7 @@ export default {
     display: grid;
     grid-template-columns: auto auto;
   }
+  position: fixed;
 
   a {
     font-weight: bold;

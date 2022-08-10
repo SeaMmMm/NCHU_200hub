@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
-// import VideoHome from "@/views/VideoHome.vue";
+import VideoHome from "@/views/VideoHome.vue";
 import HoverCard from "@/views/OtherPages/HoverCard/HoverCard.vue";
 import SignIn from "@/views/SignIn.vue";
 import Recover from "@/views/Recover.vue";
@@ -20,6 +20,15 @@ import Figma_system from "@/views/CoursesHome/Figma_system.vue";
 import FigmaSystem from "@/views/Courses/FigmaSystem.vue";
 import ReactNative from "@/views/CoursesHome/ReactNative.vue";
 import ReactNativeCourses from "@/views/Courses/ReactNativeCourses.vue";
+import AdvancedReactHandbook from "@/views/CoursesHome/React_Handbook.vue";
+import AdvancedReactHandbookCourses from "@/views/Courses/AdvancedReactHandbookCourses.vue";
+import SwiftUI_V14_P1 from "@/views/CoursesHome/SwiftUI_V14_P1.vue";
+import SwiftUI_V14_P1_Course from "@/views/Courses/SwiftUI_V14_P1_Course.vue";
+import SwiftUI_V14_P2 from "@/views/CoursesHome/SwiftUI_V14_P2.vue";
+import SwiftUI_V14_P2_Course from "@/views/Courses/SwiftUI_V14_P2_Course.vue";
+import SwiftUI_V14_P3 from "@/views/CoursesHome/SwiftUI_V14_P3.vue";
+import SwiftUI_V14_P3_Course from "@/views/Courses/SwiftUI_V14_P3_Course.vue";
+import React_Handbook from "@/views/CoursesHome/React_Handbook.vue";
 
 import { auth } from "@/main";
 
@@ -38,16 +47,61 @@ const routes = [
         component: Team,
       },
       {
+        path: "/advanced_react_handbook",
+        name: "advanced_react_handbook",
+        component: AdvancedReactHandbook,
+      },
+      {
+        path: "/advanced_react_handbook_course",
+        name: "advanced_react_handbook_course",
+        component: AdvancedReactHandbookCourses,
+      },
+      {
+        path: "/swiftui_v14_01",
+        name: "swiftui_v14_01",
+        component: SwiftUI_V14_P1,
+      },
+      {
+        path: "/swiftui_v14_01_course",
+        name: "swiftui_v14_01_course",
+        component: SwiftUI_V14_P1_Course,
+      },
+      {
+        path: "/swiftui_v14_02",
+        name: "swiftui_v14_02",
+        component: SwiftUI_V14_P2,
+      },
+      {
+        path: "/swiftui_v14_02_course",
+        name: "swiftui_v14_02_course",
+        component: SwiftUI_V14_P2_Course,
+      },
+      {
+        path: "/swiftui_v14_03",
+        name: "swiftui_v14_03",
+        component: SwiftUI_V14_P3,
+      },
+      {
+        path: "/swiftui_v14_03_course",
+        name: "swiftui_v14_03_course",
+        component: SwiftUI_V14_P3_Course,
+      },
+      {
+        path: "/react_handbook",
+        name: "react_handbook",
+        component: React_Handbook,
+      },
+      {
         path: "/news",
         name: "news",
         component: NewsHome,
         meta: { requiresAuth: true },
       },
-      // {
-      //   path: "/video",
-      //   name: "video",
-      //   component: VideoHome,
-      // },
+      {
+        path: "/video",
+        name: "video",
+        component: VideoHome,
+      },
       {
         path: "/other",
         name: "other",
@@ -75,7 +129,7 @@ const routes = [
       },
       {
         path: "/react_native_course",
-        name: "ReactNativeCourses",
+        name: "react_native_course",
         component: ReactNativeCourses,
       },
       {

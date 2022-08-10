@@ -125,7 +125,7 @@ export default {
       if (this.index > 1) {
         this.index--;
         this.$router.push({
-          name: this.where,
+          place: this.where,
           query: {
             index: this.index,
             total: this.total,
@@ -200,28 +200,39 @@ export default {
     position: absolute;
     width: 100vw;
     height: 100vh;
+    @media (max-width: 900px) {
+      height: 550px;
+    }
     background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
     z-index: 10;
   }
   .course1 {
     @media (max-width: 900px) {
-      top: -50px !important;
+      top: 0px !important;
+      transform: scale(0.5);
+      left: -430px;
     }
   }
   .course2 {
     @media (max-width: 900px) {
-      top: 150px !important;
+      top: 200px !important;
+      transform: scale(0.5);
+      filter: blur(30px);
+      left: -430px;
     }
   }
   .course3 {
     @media (max-width: 900px) {
-      top: 250px !important;
-      filter: blur(60px);
+      top: 300px !important;
+      transform: scale(0.5);
+      left: -430px;
     }
   }
   .course4 {
     @media (max-width: 900px) {
-      top: 650px !important;
+      top: 350px !important;
+      transform: scale(0.5);
+      left: -540px;
     }
   }
 }
@@ -229,7 +240,7 @@ export default {
   z-index: 1100;
   margin-top: 430px;
   @media (max-width: 900px) {
-    margin-top: 230px;
+    margin-top: 0;
   }
 }
 
@@ -262,7 +273,8 @@ export default {
   font-weight: bold;
   font-size: 60px;
   @media (max-width: 900px) {
-    font-size: 40px;
+    font-size: 30px;
+    line-height: 35px;
   }
   line-height: 72px;
   mix-blend-mode: normal;
