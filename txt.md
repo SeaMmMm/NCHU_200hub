@@ -1,263 +1,297 @@
-### React Native 是一种流行的 Javascript 框架，它构建在 React 之上，通过使用原生组件创建一个与使用 Xcode 或 Android Studio 制作的真正的移动应用程序没有区别。与原生开发的主要区别在于，您可以使用 CSS、热重载、Javascript 和其他 Web 在过去几十年中发展起来的熟悉技术。最重要的是，您正在使用相同的代码库为 iOS 和 Android 构建。
+### [SwiftUI](https://developer.apple.com/xcode/swiftui/) 无疑是设计师迈出代码第一步的最佳方式。由于其实时预览，您可以快速迭代并使用适用于所有 Apple 平台的几行代码创建强大的用户界面。将您的静态设计提升到一个新的水平，并使用原型工具的简单性构建真正的应用程序。
+
+### 我们正在使用[Sketch](https://www.sketch.com/?ref=designcode)来设计插图的[界面和形状](https://shape.so/?ref=designcode)。提供所有设计和源文件，以便您在学习的同时升级您的 UI 技能。
 
 ## 下载
 
-要学习本课程，您可以下载[源文件](https://assets.ctfassets.net/ooa29xqb8tix/5jpIVZzlaPO7Zjz3qr7kMY/1c3f07240365ef7cc185f57af99ecc24/Assets_-_React_Native_Part_1-2_.zip)，这将帮助您比较您的进度。
+要学习本课程，您可以下载[源文件](https://downloads.ctfassets.net/ooa29xqb8tix/1iNvqLD6HHeyet8Aln22Mn/c0d6e68d1afcd7e31ef89b86221bb069/SwiftUI_Complete_Source_Files__updated__-1-60.zip)，这将帮助您比较您的进度。
 
-## 关于本课程
+## 这个课程
 
-这是一门由设计师为设计师开设的课程，重点关注 UI、动画和从设计工具开始的工作流程。代码和速度很容易理解。每一步都是可视的，可以轻松遵循。您可以在没有任何编程经验的情况下参加本课程，但是拥有一些 CSS 和 HTML 知识肯定会帮助您了解一些概念的复杂性。[InVision Studio](https://www.invisionapp.com/studio) （免费）中的[设计文件](https://www.dropbox.com/s/4av17693kc1gxj7/DesignCode-ReactNative.zip?dl=0)、项目资产和 [React Native源代码](https://github.com/MengTo/react-native-for-designers)是共享的，以便您可以与自己的进度进行比较。
+本课程与其他课程不同。我们关心设计，并希望确保您在此过程中做得更好。它是为热衷于为 iOS 和 macOS 协作和构建真实应用程序的设计师和开发人员编写的。虽然它不是适用于所有应用程序的一个代码库，但您只需学习一次，就可以将这些技术和控件应用到具有令人难以置信的质量、一致性和性能的所有平台上。它对初学者很友好，但它还包含用于构建出色用户界面和交互的设计技巧和高效的工作流程。
 
-## 两部分课程
+SwiftUI 让您可以非常轻松地为您的应用制作动画和添加手势。该代码轻量级且易于理解，即使对于来自[React](https://designcode.io/react-native)或 Flutter 的新手也是如此。
 
-第一部分包含 12 个部分，然后是[第 2部分](https://nchu200hub.netlify.app/react-native-2)中的另外 12 个部分。这是一门包含超过 10 小时学习材料和额外屏幕和修复的奖励代码的[大型课程](https://github.com/MengTo/react-native-for-designers)。
+## 要求
 
-## 为什么要学习 React Native？
+需要最少的编码经验，例如 HTML 和 CSS。请注意[Xcode 11](https://developer.apple.com/xcode/)和[Catalina](https://www.apple.com/macos/catalina-preview/)是必不可少的。一旦你安装了所有东西，它会变得更加友好！我在本页末尾添加了一系列疑难解答，以帮助您解决可能遇到的问题。
 
-React Native 被广泛认为是创建跨平台应用程序的最佳方式。如果您参加了我的[React 课程](https://nchu200hub.netlify.app/advanced_react)，您会感到宾至如归，因为代码非常相似。今天，大多数设计师都知道用于 Web 的 HTML 和 CSS。我坚信他们应该掌握同等的移动技能。拥有应用程序的视觉方面、动画和适应性可以为您的团队节省大量时间，避免不必要的沟通或做出糟糕的设计决策。反过来，它增加了设计师和开发人员之间的协作。最终，您的产品将以更高的质量和更好的迭代速度交付。
+## 状态和动画
 
-## 工作流程
+过渡就像 `Keynote` 中的`Magic Move`。您只需要设置状态，**SwiftUI**就会为您计算出两种状态之间的转换。
 
-我们将使用[Expo](http://expo.io/)来设置我们的开发环境，以便在 iOS 和 Android 模拟器以及您的物理设备上轻松测试我们的应用程序。对于样式，我们将使用样式化组件，因为它与 CSS 中的语法相似。图标资源将在[SVG](https://github.com/react-native-community/react-native-svg)中基于矢量。对于内容和 CMS（内容管理系统），我们将使用[Contentful](https://www.contentful.com/)和[Apollo](https://www.apollographql.com/) /GraphQL，它允许您独立存储图像和文本并像数据库一样查询它们。像这样，当您更新内容时，您不需要发送应用更新。
+```swift
+@State var show = true
 
-我们将使用[Redux](https://redux.js.org/basics/usage-with-react)在组件之间进行通信，以便一个操作可以同时影响多个组件。这对于持久状态和数据特别有用。除此之外，我们将尽可能多地使用 React Native/Expo 工具箱中的内置库，例如[Animated](https://facebook.github.io/react-native/docs/animations)、[Gestures](https://facebook.github.io/react-native/docs/panresponder)、[Icons](https://docs.expo.io/versions/latest/guides/icons/)和[Navigation](https://facebook.github.io/react-native/docs/navigation)。
-
-## 安装节点
-
-在开始之前，您需要 Node 包管理器 (NPM) 来安装 React 和 Expo。要安装 Node，您需要前往他们的站点并[下载](https://nodejs.org/en/)适合您系统的版本。如果您愿意，也可以使用[Homebrew](https://brew.sh/)（仅限 Mac）安装节点。
-
-![https://images.ctfassets.net/ooa29xqb8tix/4vhRzlhODzzzW8Vipm5OIz/8d697848f3fb14e70c4f8994a36bad92/installNode.png](https://images.ctfassets.net/ooa29xqb8tix/4vhRzlhODzzzW8Vipm5OIz/8d697848f3fb14e70c4f8994a36bad92/installNode.png)
-
-## 安装 Xcode
-
-如果您使用的是 Mac，我强烈建议您为所需的命令行工具和使用 iOS 模拟器[安装 Xcode](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12) 。Xcode 还附带了[Git](https://git-scm.com/)，非常适合开发。
-
-![https://images.ctfassets.net/ooa29xqb8tix/7LcWh5p1zq6Pdut3eVNVzr/889fb37e3774d7fb64b2b484115af014/installXcode.png](https://images.ctfassets.net/ooa29xqb8tix/7LcWh5p1zq6Pdut3eVNVzr/889fb37e3774d7fb64b2b484115af014/installXcode.png)
-
-在 Xcode 中，确保转到 Xcode、首选项、位置并查看命令行工具是否已正确安装。
-
-![https://images.ctfassets.net/ooa29xqb8tix/5CimKErSUBlugL5FMVnwbn/3af88341cea1f5a0b49a5508cce6f650/installXcode2.png](https://images.ctfassets.net/ooa29xqb8tix/5CimKErSUBlugL5FMVnwbn/3af88341cea1f5a0b49a5508cce6f650/installXcode2.png)
-
-## 终端
-
-要安装几乎任何库，例如 Git 或 React，您需要使用终端。它本质上是一个您可以编写命令来为您运行程序的地方，例如安装新框架或更新您的库。要打开终端，请运行 Spotlight ( **Command + Space** ) 并键入 Terminal。到达那里后，转到“下载”文件夹。您可以按Tab自动完成Downloads。
-
-```md
-cd Downloads
-```
-
-随意将您的项目放在桌面或文档中。我选择下载的原因是因为 iCloud 不会干扰热重载。
-
-## 安装Expo
-
-Expo将允许我们拥有一个开发环境来创建我们的应用程序。转到终端并键入此命令，然后按 Enter。
-
-```md
-sudo npm install expo-cli --global
-```
-
-转到他们的[快速入门指南](https://expo.io/learn)以获取更详细的说明。
-
-- 1. sudo 允许您安装需要管理员权限的库。确保您的 Mac 帐户设置为管理员。
-- 2. 全局意味着您可以从终端中的任何文件夹运行expo命令。
-
-## 创建项目
-
-通过运行此命令开始构建您的第一个 React Native 项目。
-
-```js
-expo init designcode-app
-```
-
-- 1. 选择空白模板。
-- 2. 选择托管（默认）。
-- 3. 将名称设置为“设计+代码”。或者，随意使用您希望的任何名称。
-- 4. 安装yarn。
-- 5. 输入项目名称和描述。Slug 应该是designcode-app。
-
-转到新项目的文件夹并启动环境。
-
-```t
-cd designcode-app
-expo start
-```
-
-Expo 开发人员工具将在您的浏览器中打开，您将看到这样的页面。
-
-![https://images.ctfassets.net/ooa29xqb8tix/7z8EYxwJflH3ch5FgigE1o/6a07c016d9f105d0ddbb4887a1a2f701/createProject.png](https://images.ctfassets.net/ooa29xqb8tix/7z8EYxwJflH3ch5FgigE1o/6a07c016d9f105d0ddbb4887a1a2f701/createProject.png)
-
-## 在 iOS 模拟器上预览
-
-您可以单击按钮Run on iOS Simulator。这将自动打开 iOS 模拟器。留出一些时间来构建 Javascript 包，您将看到 Expo 屏幕。单击知道了。瞧！您的第一个应用程序正在运行！
-
-![https://images.ctfassets.net/ooa29xqb8tix/10b0L44A4GB3MTFdmdZw96/e070f62eed012c67dc2ff150d762c345/iOS.png](https://images.ctfassets.net/ooa29xqb8tix/10b0L44A4GB3MTFdmdZw96/e070f62eed012c67dc2ff150d762c345/iOS.png)
-
-为了预览您的第一个应用程序，请确保安装了[Xcode](https://developer.apple.com/xcode/)，这将使您能够访问其 iOS 模拟器。您可以将设备更改为长列表中的任何设备：iPad、iPhone X、iPhone 8 等。
-
-![https://images.ctfassets.net/ooa29xqb8tix/3tJDhK6liXOKRaO6KzH5pU/90fd79217710eef2371d09f748aeb7d0/iOS2.png](https://images.ctfassets.net/ooa29xqb8tix/3tJDhK6liXOKRaO6KzH5pU/90fd79217710eef2371d09f748aeb7d0/iOS2.png)
-
-一些提示：
-
-- 1. **Command + R**刷新页面。
-- 2. 如果出现问题，只需**Command + Q**模拟器，然后再次单击在 iOS 模拟器上运行。
-- 3. 转到硬件 >**设备**以更改设备。
-- 4. 执行**Command + 右箭头**或左箭头可在纵向和横向之间切换。
-- 5. **Command + 1**和**2**将分别使模拟器的物理尺寸（更小）或像素准确。您还可以通过将鼠标悬停在设备的角落来调整设备的大小。
-
-## 在 Android 模拟器上预览
-
-下载[Android Studio](https://developer.android.com/studio/)以在 Android 模拟器中预览您的应用。安装后，创建一个新项目（使用默认设置）并等待大约 5 分钟以构建内容，直到您看到 Play 图标变为绿色。点击它。从那里，创建一个新的虚拟设备并在其上下载最新的 Android 操作系统。
-
-![https://images.ctfassets.net/ooa29xqb8tix/7ovAbQdDmfUxQZSTYRqnJp/27a0c5ffdf08adf6c405cbf11487c72c/android.png](https://images.ctfassets.net/ooa29xqb8tix/7ovAbQdDmfUxQZSTYRqnJp/27a0c5ffdf08adf6c405cbf11487c72c/android.png)
-
-完成后，它将在模拟器中启动 Android Studio 项目。
-
-![https://images.ctfassets.net/ooa29xqb8tix/2SoG5l0GOoJPupR8x7e4NN/8e33161a7493f3f311ff602927a2606d/android2.png](https://images.ctfassets.net/ooa29xqb8tix/2SoG5l0GOoJPupR8x7e4NN/8e33161a7493f3f311ff602927a2606d/android2.png)
-
-从现在开始，您可以单击Expo 开发人员工具中的在 Android 设备/模拟器上运行按钮。这将使用模拟器测试您的应用程序。
-
-## 在设备上预览
-
-确保在您的手机上安装 Expo [iOS 应用程序](https://itunes.apple.com/app/apple-store/id982107779)和[Android 应用程序](https://play.google.com/store/apps/details?id=host.exp.exponent)。安装 Expo 后，您可以使用相机应用程序扫描仪表板中的二维码。您的手机会询问您是否要使用 Expo 打开链接。然后，它会自动打开您的应用程序。挺整洁的！
-
-## 下载 VSCode
-
-要编辑您的代码，您需要[Visual Studio Code](https://code.visualstudio.com/)。由于其广泛的功能和扩展列表，它是目前市场上最好的代码编辑器。
-
-**将您的designcode-app**文件夹从“下载”拖放到 Visual Studio Code 应用图标。这将打开项目文件。
-
-![https://images.ctfassets.net/ooa29xqb8tix/7qNyKS8SQRfG9SvoLsJglI/3f9e215340f624c8b9561b6b142b4e75/vscode.png](https://images.ctfassets.net/ooa29xqb8tix/7qNyKS8SQRfG9SvoLsJglI/3f9e215340f624c8b9561b6b142b4e75/vscode.png)
-
-## VSCode 扩展
-
-从左侧菜单中，您可以导航到“扩展”选项卡并安装新的。搜索以下扩展来安装它们。确保单击Install，然后单击Reload。
-
-![https://images.ctfassets.net/ooa29xqb8tix/6cunEL7ycqp3tCN0p6ndxs/da26a89434bb2121a5fdc09855ca2489/vscode-extension.png](https://images.ctfassets.net/ooa29xqb8tix/6cunEL7ycqp3tCN0p6ndxs/da26a89434bb2121a5fdc09855ca2489/vscode-extension.png)
-
-- 1. [Material Theme](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme) – 这是我个人使用的主题。它看起来很棒，并且有多种颜色主题，具体取决于您的心情。图标集合也是一个不错的选择。
-
-- 2. [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)——这个扩展非常适合初学者，因为它可以确保你的代码总是很好地缩进和格式化。每次保存时，它都会使您的代码保持一致。
-
-- 3. [styled-component](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)——因为我们将使用样式化组件，这将确保我们将突出显示 CSS 代码。
-
-- 4. [GraphQL for VSCode](https://marketplace.visualstudio.com/items?itemName=kumar-harsh.graphql-for-vscode) – GraphQL 代码的代码高亮。
-
-## Git
-
-如果您安装了[Git](https://git-scm.com/)，您可能会看到您的文件旁边有一堆字母。每次进行重大更新时，您都需要提交。
-
-为此，请按Command + Shift + P激活命令面板。这使您可以通过键入快速找到任何命令。选择全部提交，然后按 Enter。像初始提交一样写下您的提交消息，然后再次按 Enter。因此，您只会看到新的更改。
-
-![https://images.ctfassets.net/ooa29xqb8tix/XfnEMswLHGpXFU3kKVobD/db921a18885875d6c783d29949d6aba5/git.png](https://images.ctfassets.net/ooa29xqb8tix/XfnEMswLHGpXFU3kKVobD/db921a18885875d6c783d29949d6aba5/git.png)
-
-如果你碰巧有 Github，你可以简单地创建一个新的存储库并将其链接到这个项目。
-
-## 设置材质主题
-
-再次执行 Command + Shift + P 并选择**Preferences: Color Theme**。选择更深的材质主题。重新加载 VScode 以查看新图标！
-
-![https://images.ctfassets.net/ooa29xqb8tix/44PWc7YooWuxs4GLjlFNIE/67474a2bae3bb020f5b002007ece65d9/material-theme.png](https://images.ctfassets.net/ooa29xqb8tix/44PWc7YooWuxs4GLjlFNIE/67474a2bae3bb020f5b002007ece65d9/material-theme.png)
-
-## 导入资产
-
-右键单击资产文件夹并选择在 Finder 中显示。现在，您可以将下载的所有资产文件移动到项目的资产文件夹中。
-
-![https://images.ctfassets.net/ooa29xqb8tix/2Pj8rJukkbBX04XnZcVAul/e6d57bd44703a6c187c18846d4c82730/assets.png](https://images.ctfassets.net/ooa29xqb8tix/2Pj8rJukkbBX04XnZcVAul/e6d57bd44703a6c187c18846d4c82730/assets.png)
-
-## 应用配置
-
-在`app.json`中，您可以更改应用程序的设置，例如应用程序名称、描述等。随意更改最适合您的应用程序的描述。
-
-```js
-"orientation": "default",
-"icon": "./assets/icon.png",
-"splash": {
-  "image": "./assets/splash.png",
-  "resizeMode": "contain",
-  "backgroundColor": "#f0f3f5"
-},
-```
-
-## 方向
-
-默认情况下，方向将限制为纵向。由于我们的应用程序适用于平板电脑和手机，因此我们将其设置为默认值，这意味着它也适用于 Landscape。
-
-## 应用程序图标
-
-图标应设计为192x192。React Native 在 Android 和 iOS 的不同地方使用时会自动调整图像大小。此外，在导出为 PNG 时，请确保有背景颜色。
-
-## 启动画面
-
-一种流行的设计方法是简单地将您的徽标放在它的中心，并使用自定义背景颜色。分辨率应为414x812 @ 3x，即1242x2436 像素。
-
-启动画面不能适应不同的分辨率，所以你不能让它看起来像一个加载屏幕，这是众所周知的苹果为设置、音乐和应用商店等应用程序所做的技术。
-
-## 项目结构
-
-您需要注意的主要文件如下：
-
-- **assets**文件夹：这是您放置所有本地图像和图标的地方。
-- **App.js** - 这就是一切的开始。您的应用将在首次加载时引用此文件。它有点像 index.html。
-- **app.json** - 您的应用配置，您可以在其中设置应用名称、图标、加载屏幕、方向、包标识符等。
-
-## react代码
-
-```jsx
-import React from "react";
-
-export default class App extends React.Component {
-  render() {
-    return (
-      // ...
-    );
-  }
+.onTapGesture {
+    self.show.toggle()
 }
 ```
 
-## 基本组件
+## 动画
+
+SwiftUI 提供了多种方法来为您的过渡设置动画。他们甚至有自己的基于物理的内置函数，允许您使用超调并将弹性应用于动画。
+
+```swift
+// Linear
+.animation(.linear)
+
+// Ease Animation
+.animation(.easeInOut(duration: 0.3))
+
+// Animation with Delay
+.animation(Animation.easeOut(duration: 0.6).delay(0.1))
+
+// Spring
+.animation(.spring())
+```
+
+## 堆栈
+
+如果您不熟悉 SwiftUI 中的堆栈，我建议您经常使用 Spacer。默认情况下，视图采用最小大小的子元素。这是我为帮助您理解而制作的图像。
+
+![https://images.ctfassets.net/ooa29xqb8tix/498TuiIbNIxOLgt8CAkJ6h/23dbb3569846b091eb65c7cab4c942ec/1.1.jpg](https://images.ctfassets.net/ooa29xqb8tix/498TuiIbNIxOLgt8CAkJ6h/23dbb3569846b091eb65c7cab4c942ec/1.1.jpg)
+
+以下是我在 SwiftUI 中使用 Stacks 时学到的一些技巧。
+
+```swift
+// Stack views vertically and take full height
+VStack {
+  Spacer()
+}
+
+// Stack views horizontally and take full width
+HStack {
+  Spacer()
+}
+
+// Gap between views
+VStack(spacing: 20) {}
+
+// Stack views on top of each other in a Z (depth) unit
+ZStack { 
+    VStack {}
+    HStack {}
+}
+
+// Take maximum width without Spacer()
+.frame(minWidth: 0, maxWidth: .infinity)
+
+// Align elements to the top left
+ZStack(alignment: .topLeading) {}
+```
+
+## 适用于所有设备的 SwiftUI
+
+SwiftUI 适用于 iPad、Mac、Apple TV 和 Watch。代码更改很少，您可以重用许多相同的组件。`Stacks`、`Controls`和`Layout`系统的工作方式相同，但需要进行一些调整。SwiftUI 的理念不是一次编写，到处应用，而是一次学习，到处应用。
+
+例如，模态框会自动与上下文相关，为您提供关闭手势并为您正确调整它们的大小。大多数控件和数据都可以在所有平台上运行，只是有一些小的布局更改和导航。这些控件将使用适用于其特定平台的适当 UI 自动为您翻译。例如，一个Picker在 iOS 中看起来像一个 List，但在 Mac 中它看起来像一个下拉菜单。
+
+```swift
+// All
+ZStack, VStack, HStack, TabView
+NavigationView, Picker, Stepper, Slider, etc.
+SF Symbols
+
+// iPad / Mac
+TabView
+
+// Mac
+Keyboard Shortcuts
+```
+
+## 拖放用户界面
+
+视图、修改器和图像可以拖到预览和代码中。您构建的所有内容都会自动转换为生产代码。
+
+在代码中就像在预览中一样，您可以使用 Command + Click 来获得一个上下文菜单，您可以在其中检查元素并访问许多有用的选项，例如嵌入 VStack或提取到子视图。
+
+## 修饰符
+
+您可以轻松地将修改器拖放到视图旁边，并且可以使用颜色、变换、视觉效果、内置控件和手势等新属性来增强它们。
+
+```swift
+.frame(width: 100, height: 100)
+.background(Color.blue)
+.shadow(radius: 10)
+.offset(x: 10, y:10)
+.blur()
+.padding()
+```
+
+## SF 符号
+
+您需要从 Apple 下载最新的[San Francisco 字体](https://developer.apple.com/fonts/)才能打开设计文件。Apple 在其新的 SF Symbols 应用程序中提供了[1000 个图标](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/)，这些图标可用作 Xcode 或设计工具中的矢量资产。
+
+在 SwiftUI 中，您可以使用[SF Symbols](https://developer.apple.com/design/human-interface-guidelines/sf-symbols/overview/)的名称轻松生成图标。确保下载该应用程序。此外，您可以自定义大小（小、中、大）并更改图标颜色。
 
 ```jsx
-    import { StyleSheet, Text, View } from "react-native";
+Image(systemName: item.icon)
+    .imageScale(.large)
+    .foregroundColor(.blue)
+    .frame(width: 32, height: 32)
 ```
 
-与使用 div 和 p 标签的 Web 不同，移动设备有自己的一组标签，只是它们以大写字母开头。
+## 视图和控件
 
-- 1. 查看 - 这适用于任何容器。它就像 Web 中的 div。
-- 2. 文本 - 对于任何文本，您绝对需要在文本中换行。
+您可以在设计工具中找到的基本元素或更复杂的交互式控件（如切换、滑块和数据选择器）在 SwiftUI 中免费提供。它们非常容易设计样式和自定义功能和数据。
 
-## CSS 样式表
-
-React Native 使用与构建站点相同的所有 CSS 属性。与 Web 不同，您无需创建 .css 文件来存储样式。相反，这一切都发生在与屏幕相同的文件中。
-
-```jsx
-<View style={styles.container}></View>
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+```swift
+Text
+Image
+Rectangle
+Toggle
+Picker
+Stepper
+Slider
 ```
 
-## 弹性盒
+## 视觉效果
 
-如果你还没有学习过 Flexbox，这将是一个好时机。基本上，它允许您设置行和列，非常容易地水平和垂直对齐项目。React Native 在他们的指南中突出使用了 Flexbox。
+SwiftUI 为您免费提供了一堆视觉效果，以便您可以玩它们。最重要的是，您甚至可以为它们设置动画，它会为您很好地过渡！
 
-Flex: 1 表示它将占用容器的整个空间。在这种情况下，它是整个设备屏幕。
-
-```css
-flex: 1
+```swift
+.rotationEffect(Angle(degrees: 30))
+.rotation3DEffect(Angle(degrees: 60), axis: (x: 0, y: 10, z: 0))
+.scaleEffect(0.9)
+.blendMode(.hardLight)
+.blur(radius: 20)
 ```
 
-## VSCode 集成终端
+## 用户界面组件
 
-虽然终端应用程序非常适合安装所有必要的工具，但 VSCode 中的集成终端对于安装其他库非常方便。如果您愿意，您绝对可以使用它而不是终端。
+就像在您的设计系统或 React 中一样，您应该尽可能地将 UI 分解为组件。要创建一个新组件，Command + 单击VStack 之类的容器，然后选择Extract to Subview。
 
-要访问集成终端，请执行**Command + `**。
+```swift
+VStack {
+    Text("Card Back")
+}
+.frame(width: 340, height: 220.0)
+通过编写组件名称来引用组件。组件是视图，仍然可以接收额外的修饰符，甚至不需要传递属性！
 
-## CSS
+CardView()
+    .background(show ? Color.red : Color.blue)
+    .cornerRadius(10)
+```
 
-React Native 使用与构建站点相同的所有 CSS 属性。与 Web 不同，您无需创建 .css 文件来存储样式。相反，这一切都发生在与屏幕相同的文件中。
+## 实时预览
+
+SwiftUI 的有趣之处在于您所做的所有更改都是实时的，包括您使用的数据。Debug 代码允许您在 Swift UI 中快速测试数据和预览环境。它对于快速迭代非常强大。
+
+您可以同时在多个设备上[预览](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwj5jtWMsP3iAhXKxlkKHVUnAzoQwqsBMAB6BAgJEAQ&url=https%3A%2F%2Fdeveloper.apple.com%2Fvideos%2Fplay%2Fwwdc2019%2F233&usg=AOvVaw3h1U4_6nZ0rOmDpTufWqDd)您的 SwiftUI 设计。您必须先对内容视图进行分组，然后才能进行预览和数据设置。在这种情况下，我们使预览窗口具有自适应性。最重要的是，您可以固定预览，以便在更改代码时始终看到相同的屏幕。
+
+```swift
+Group {
+    ContentView()
+    ContentView()
+        .previewLayout(.sizeThatFits) // Preview components
+        .environment(\.sizeCategory, .extraExtraExtraLarge) // Accessibility
+        .previewDevice("iPhone 8")  // Specific device
+}
+```
+
+## 黑暗模式
+
+要在深色模式下预览您的布局，您需要在 Debug 区域的 Content View 中添加一个修饰符。请注意，为了使您的设计在暗模式下运行良好，您应该尽可能使用它们的默认颜色和控件，例如导航视图。
+
+```swift
+ContentView(courses: testData)
+    .environment(\.colorScheme, .dark)
+```
+
+## 声明性代码
+
+在 SwiftUI 中，您将编写更短的[声明性](https://developer.apple.com/xcode/swiftui/)代码，所以这一切都是为了告诉 UI 应该做什么。它可读且直截了当。
+
+## 自动缩进代码
+
+当你编辑你的代码时，它最终会变得难以阅读，所以你可以在 Xcode 中使用 Re-Indent 来保持一切干净。这有点类似于 Prettier，但您必须选择代码并按Control + I。
+
+## 四舍五入到最近的像素
+
+SwiftUI 会为您进行[像素拟合](https://developer.apple.com/videos/play/wwdc2019/237/)，以便您的视图始终看起来清晰。
+
+![https://images.ctfassets.net/ooa29xqb8tix/4bCvyl9l3pIwIjLZyGACFn/d8d89d4a24ecb8a72964703bbb8c1ee4/1.2.png](https://images.ctfassets.net/ooa29xqb8tix/4bCvyl9l3pIwIjLZyGACFn/d8d89d4a24ecb8a72964703bbb8c1ee4/1.2.png)
+
+## 斯威夫特package
+
+Swift 现在有一个[包管理器](https://swift.org/package-manager/)，让您可以轻松地从社区安装第三方库。要安装库，请转到您的项目设置 > Swift 包。
+
+![https://images.ctfassets.net/ooa29xqb8tix/7ytpwYPd3rDGcpwOfT5AOu/dc71492821ce9e871d4154e8630c4a1f/1.3.png](https://images.ctfassets.net/ooa29xqb8tix/7ytpwYPd3rDGcpwOfT5AOu/dc71492821ce9e871d4154e8630c4a1f/1.3.png)
+
+## 安装 Catalina 和 Xcode 11
+
+[Catalina](https://www.apple.com/macos/catalina-preview/)和[Xcode 11](https://developer.apple.com/xcode/)需要使用实时预览功能运行 SwiftUI。要下载 Xcode，请前往 Mac App Store 并搜索 Xcode。安装完所有内容后，您必须安装一堆新组件并按照说明进行操作。
+
+![https://images.ctfassets.net/ooa29xqb8tix/7BdQWW1OoQaMWiXqBJdF4x/294819de050484bfd1d1f187f40416af/1.4.jpeg](https://images.ctfassets.net/ooa29xqb8tix/7BdQWW1OoQaMWiXqBJdF4x/294819de050484bfd1d1f187f40416af/1.4.jpeg)
+
+## 你的第一个 SwiftUI 应用
+
+要创建应用程序，请单击Create a new Xcode project。然后，选择Single-View app。之后，您必须设置项目设置。标识符通常是您的反向域名。最后，确保选中Use SwiftUI。
+
+![https://images.ctfassets.net/ooa29xqb8tix/5Fj8pbXytemHZtwbwT2fk8/ab0e1019abb9276e22d9151943159266/1.5.jpeg](https://images.ctfassets.net/ooa29xqb8tix/5Fj8pbXytemHZtwbwT2fk8/ab0e1019abb9276e22d9151943159266/1.5.jpeg)
+
+完成应用设置后，您会看到预览版旁边的 SwiftUI 代码编辑器。确保单击右上角的Resume以实时查看结果。您还可以通过单击右上角的按钮来隐藏左导航和右检查器。
+
+![https://images.ctfassets.net/ooa29xqb8tix/2fK6kpm2nB2jriJ0Ybnyi5/2d5e329d27b88a4f1cf4fc0fe74dffde/1.6.jpeg](https://images.ctfassets.net/ooa29xqb8tix/2fK6kpm2nB2jriJ0Ybnyi5/2d5e329d27b88a4f1cf4fc0fe74dffde/1.6.jpeg)
+
+## 导入资产
+
+如果您使用图像或字形，则必须导入PNG、JPG或PDF资产。照片通常保存为 JPG，而图标等矢量字形应保存为 PDF。PNG 用于更复杂的透明图像，这些图像需要在 PDF 中无法复制的精确度和像素完美度，例如渐变、注入位图的阴影。
+
+## 应用程序图标
+
+在 Sketch 中，你可以找到一个模板来创建你的 App Icon。自定义视觉对象后，您可以将所有内容导出到文件夹。然后，将图像拖放到资产内的应用程序图标中。确保删除未分配的图像并移动缺少的 3 个图像：Icon.png到 1024，icon_83.5@2x.png到 iPad 83.5pt (2x)，icon_76@2x.png到 iPad 76pt 2x。
+
+![https://images.ctfassets.net/ooa29xqb8tix/4STiDa6j7rZcFcBIIcY1kA/993ae148a14a78d5c322dbc8428a8819/1.7.jpeg](https://images.ctfassets.net/ooa29xqb8tix/4STiDa6j7rZcFcBIIcY1kA/993ae148a14a78d5c322dbc8428a8819/1.7.jpeg)
+
+## 资产中的颜色集
+
+我建议直接在Assets中提前为您的应用设置颜色。像这样，您可以轻松地从 Inspect 和代码中引用这些颜色。最重要的是，这些颜色将支持亮/暗模式。我准备了一个Assets.xcassets文件夹，您可以在其中展开 Colors 文件夹并将其拖放到您的资产中。
+
+![https://images.ctfassets.net/ooa29xqb8tix/6PonVoIumljqCPk3Ldu8o5/c48f50f57b05517b0ab27839baf59ca6/1.8.jpeg](https://images.ctfassets.net/ooa29xqb8tix/6PonVoIumljqCPk3Ldu8o5/c48f50f57b05517b0ab27839baf59ca6/1.8.jpeg)
+
+在 Assets 中设置的颜色可以在这样的代码中引用。
+
+```swift
+Color("accent")
+```
+
+## 键盘快捷键
+
+最重要的 Xcode 键盘快捷键如下：
+
+- 1.`Cmd + 单击`：代码或 UI 的上下文菜单。
+- 2.`Option + 单击`：代码的快速信息。
+- 3.`Cmd + 0`：显示/隐藏导航器。
+- 4.`Cmd + Shift + L`：插入新元素。
+- 5.`Cmd + R`：运行应用程序。
+- 6.`Cmd + 。`：停止应用程序。
+
+## 应用名称
+
+要更改显示在您的应用图标旁边的应用名称，您需要转到您的项目**设置 > 信息 > 包名称**。
+
+## 在设备上测试
+
+在您的设备上使用您的应用程序是一种神奇的体验。请记住，您正在构建的内容是完全原生的并且非常高效。为了能够在您的手机上测试您的应用程序，您需要一个免费的[开发者帐户](https://developer.apple.com/programs/)，并通过 USB 连接。
+
+## 教程
+
+Apple 制作的[教程](https://developer.apple.com/tutorials/swiftui/tutorials)非常棒，而且执行得非常好。不过，他们往往会更多地与开发人员交谈，而且复杂性会迅速增加。但是，在您学习了我的课程之后，我相信您将能够回到那些教程并更好地理解它们。
+
+## 以 SwiftUI 为例
+
+如果您想快速了解如何在 SwiftUI 中执行某些操作，我建议您阅读来自 Hacking with Swift 的 Paul Hudson的[优秀快速教程](https://www.hackingwithswift.com/quick-start/swiftui)。
+
+## 资源
+
+在这么短的时间内涵盖所有内容是不可能的，因此使用出色的资源继续您的旅程很重要。这是一个[很好的清单](https://github.com/Juanpe/About-SwiftUI)。
+
+## 时事通讯
+
+有很好的新闻通讯可以获得关于 iOS 的最新资源：[iOS Dev Weekly](https://iosdevweekly.com/)和[iOS Goodies](https://ios-goodies.com/)。
+
+## 更多视频
+
+在我的[YouTube 频道](https://www.youtube.com/channel/UCTIhfOopxukTIRkbXJ3kN-g)中，我发布了一堆短片实验和新技术，所以如果你想进一步提高你的 SwiftUI 技能，你可以查看它们。

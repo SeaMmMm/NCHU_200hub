@@ -45,10 +45,10 @@ export default {
 
 <style lang="scss" scoped>
 .micleBird {
-  top: -25vh;
+  top: -20vh;
   left: 20vw;
   @media (max-width: 900px) {
-    top: -380px;
+    top: -180px;
     left: -20px;
   }
 }

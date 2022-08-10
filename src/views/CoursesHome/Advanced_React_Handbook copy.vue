@@ -1,8 +1,8 @@
 <template>
   <div>
     <CoursehomeTemplate
-      query="reactNativeCollection"
-      where="react_native_course"
+      query="advancedReactHandbookCollection"
+      where="advanced_react_handbook_course"
     />
   </div>
 </template>

@@ -14,8 +14,8 @@
           <div class="topDescription">NCHU_200hub 正因有你，</div>
           <div class="Username">{{ email || "还在裸奔的游客😳" }}</div>
           <div class="footerGrid">
-            <div class="footerNormal">相信我们的hub</div>
-            <div class="HotelName">越来越好</div>
+            <div class="footerNormal">hub</div>
+            <div class="HotelName">day day up</div>
           </div>
         </div>
       </div>

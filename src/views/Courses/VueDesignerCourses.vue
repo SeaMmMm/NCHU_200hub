@@ -1,9 +1,14 @@
 <template>
-  <CourseTemplate :contents="contents" where="vue_desingers_course" />
+  <CourseTemplate :contents="contents" where="vue_desingers_course">
+    <Video
+      src="https://www.youtube.com/embed/0oRcEBuEf5Y?list=PLn8_GKQGufjmi28UPM72xqcDjg46na88t"
+    />
+  </CourseTemplate>
 </template>
 
 <script>
 import CourseTemplate from "@/views/Courses/CourseTemplate.vue";
+import Video from "@/views/Courses/Video.vue";
 
 export default {
   async created() {
@@ -22,7 +27,7 @@ export default {
       this.isOnComputer = false;
     }
   },
-  components: { CourseTemplate },
+  components: { CourseTemplate, Video },
   data() {
     return {
       contents: [],

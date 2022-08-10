@@ -240,14 +240,8 @@
 
 <script>
 import axios from "axios";
-
-import Courses from "@/views/Courses/ReactCourses.vue";
 import "markdown-it-vue/dist/markdown-it-vue.css";
 export default {
-  name: "Team",
-  components: {
-    Courses,
-  },
   data() {
     return {
       value: "",
@@ -484,7 +478,7 @@ export default {
 }
 
 .light-card {
-  background: #ffffff;
+  background: rgb(242, 246, 255);
   box-shadow: 0px 15px 30px rgba(103, 110, 144, 0.15);
   &:hover {
     box-shadow: 0 4px 4px rgba(103, 110, 144, 0.05),

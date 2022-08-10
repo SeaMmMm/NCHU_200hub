@@ -17,14 +17,9 @@
         src="@/assets/waves/hero-wave3.svg"
         style="top: 550px"
       />
-      <img
-        class="waves"
-        src="@/assets/waves/footer-wave1.svg"
-        style="top: 750px"
-      />
     </div>
     <div class="container">
-      <div class="cards">
+      <div v-if="havContent" class="cards">
         <div class="SearchBox">
           <input
             style="z-index: 1100"
@@ -35,50 +30,65 @@
           />
         </div>
         <template v-for="content in contentsTemplate">
-          <template>
-            <a
-              :key="content.url"
-              class="card"
-              style="cursor: pointer; z-index: 1000"
-              :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
-              @click="goCourses(content.where)"
+          <a
+            :key="content.title"
+            class="card"
+            style="cursor: pointer; z-index: 1000"
+            :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+            @click="goTeams(content.index, contents.length)"
+          >
+            <img
+              :src="content.illustration.url"
+              class="card-header"
+              :class="{
+                'light-header': !isDarkMode,
+                'dark-header': isDarkMode,
+              }"
+            />
+            <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
+              {{ content.title }}
+            </h3>
+            <p
+              :class="{
+                'light-text': isDarkMode,
+                'dark-text': !isDarkMode,
+              }"
             >
-              <img
-                :src="content.illustration.url"
-                class="card-header"
-                :class="{
-                  'light-header': !isDarkMode,
-                  'dark-header': isDarkMode,
-                }"
-              />
-              <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
-                {{ content.title }}
-              </h3>
-              <p
-                :class="{
-                  'light-text': isDarkMode,
-                  'dark-text': !isDarkMode,
-                }"
-              >
-                {{ content.description }}
-              </p>
-            </a>
-          </template>
+              {{ content.description }}
+            </p>
+          </a>
         </template>
       </div>
+      <img
+        v-else
+        class="showEmpty cards"
+        src="@/assets/svg/ShowEmpty.svg"
+        alt="ShowEmpty"
+      />
     </div>
+    <img
+      v-show="isOnComputer"
+      class="waves"
+      src="@/assets/waves/footer-wave1.svg"
+      style="top: 750px"
+    />
   </div>
 </template>
 
 <script>
+import "markdown-it-vue/dist/markdown-it-vue.css";
+
 export default {
   data() {
     return {
+      searchText: "",
       currentScroll: 0,
       contents: [],
-      searchText: "",
+      isOnComputer: true,
+      havContent: true,
     };
   },
+  props: ["query", "where"],
   computed: {
     isDarkMode() {
       return this.$store.getters.isDarkMode;
@@ -95,27 +105,38 @@ export default {
     },
   },
   async created() {
-    this.contents = await this.getContents();
+    this.contents = await this.getcartoonUrl();
+    this.contents.sort((a, b) => {
+      return a.index - b.index;
+    });
+    if (document.body.clientWidth <= 900) this.isOnComputer = false;
+    if (this.contents.length === 0) this.havContent = false;
   },
   methods: {
-    goCourses(url) {
-      this.$router.push(url);
+    goTeams(index, total) {
+      this.$router.push({
+        name: this.where,
+        query: {
+          index: index,
+          total: total,
+        },
+      });
     },
-    getContents: async () => {
+    async getcartoonUrl() {
       const query = `{
-        courseCardsCollection{
-          total
-          items{
-            title
-            description
-            where
-            illustration{
-              url
-            }
+      ${this.query} {
+        items {
+          title
+          description
+          illustration {
+            url
           }
+          content
+          index
         }
       }
-      `;
+    }
+    `;
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`;
 
       const fetchOptions = {
@@ -131,7 +152,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.courseCardsCollection.items;
+        return response.data[this.query].items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }
@@ -143,6 +164,31 @@ export default {
 <style scoped lang="scss">
 @import "@/global-styles/colors.scss";
 @import "@/global-styles/typography.scss";
+
+@keyframes Op {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    filter: blur(0px);
+  }
+}
+
+.showEmpty {
+  left: -15%;
+  top: 6rem;
+  z-index: 1000;
+  animation: Op 1s forwards;
+  opacity: 0;
+  @media (max-width: 900px) {
+    width: 400px;
+    top: 10rem;
+  }
+}
 
 .SearchBox {
   z-index: 900;
@@ -172,10 +218,14 @@ export default {
   .waves {
     position: absolute;
     z-index: 10;
+    @media (max-width: 900px) {
+      transform: scale(0.6);
+      left: -350px;
+    }
   }
   .Background {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
     z-index: 10;
@@ -214,6 +264,9 @@ export default {
   margin: 20px;
   margin-top: 100px;
   transform: scale(0.95);
+  &:hover {
+    transform: scale(1);
+  }
 }
 
 .light-card {

@@ -170,7 +170,7 @@ export default {
 }
 
 .light-background {
-  background: $light-gray;
+  background: rgb(242, 246, 255);
 }
 .dark-background {
   background: $dark-blue;
