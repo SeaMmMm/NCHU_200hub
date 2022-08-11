@@ -21,7 +21,7 @@ import FigmaSystem from "@/views/Courses/FigmaSystem.vue";
 import ReactNative from "@/views/CoursesHome/ReactNative.vue";
 import ReactNativeCourses from "@/views/Courses/ReactNativeCourses.vue";
 import AdvancedReactHandbook from "@/views/CoursesHome/React_Handbook.vue";
-import AdvancedReactHandbookCourses from "@/views/Courses/AdvancedReactHandbookCourses.vue";
+import AdvancedReactHandbookCourses from "@/views/Courses/ReactHandbookCourses.vue";
 import SwiftUI_V14_P1 from "@/views/CoursesHome/SwiftUI_V14_P1.vue";
 import SwiftUI_V14_P1_Course from "@/views/Courses/SwiftUI_V14_P1_Course.vue";
 import SwiftUI_V14_P2 from "@/views/CoursesHome/SwiftUI_V14_P2.vue";
@@ -29,6 +29,7 @@ import SwiftUI_V14_P2_Course from "@/views/Courses/SwiftUI_V14_P2_Course.vue";
 import SwiftUI_V14_P3 from "@/views/CoursesHome/SwiftUI_V14_P3.vue";
 import SwiftUI_V14_P3_Course from "@/views/Courses/SwiftUI_V14_P3_Course.vue";
 import React_Handbook from "@/views/CoursesHome/React_Handbook.vue";
+import ReactHandbookCourses from "@/views/Courses/ReactHandbookCourses.vue";
 
 import { auth } from "@/main";
 
@@ -55,6 +56,11 @@ const routes = [
         path: "/advanced_react_handbook_course",
         name: "advanced_react_handbook_course",
         component: AdvancedReactHandbookCourses,
+      },
+      {
+        path: "/react_handbook_course",
+        name: "react_handbook_course",
+        component: ReactHandbookCourses,
       },
       {
         path: "/swiftui_v14_01",
