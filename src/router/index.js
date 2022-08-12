@@ -1,35 +1,44 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/views/Home.vue";
-import VideoHome from "@/views/VideoHome.vue";
-import HoverCard from "@/views/OtherPages/HoverCard/HoverCard.vue";
-import SignIn from "@/views/SignIn.vue";
-import Recover from "@/views/Recover.vue";
-import Request from "@/views/Request.vue";
-import ReactCourses from "@/views/Courses/ReactCourses.vue";
-import Advanced_react from "@/views/CoursesHome/Advanced_react.vue";
-import VueDesigner from "@/views/CoursesHome/VueDesigner.vue";
-import VueDesignerCourses from "@/views/Courses/VueDesignerCourses.vue";
-import ReactHooks from "@/views/CoursesHome/ReactHooks.vue";
-import ReactHooksCourses from "@/views/Courses/ReactHooksCourses.vue";
-import WelcomePage from "@/views/WelcomePage.vue";
-import Team from "@/views/Team.vue";
-import NewsHome from "@/views/News/NewsHome.vue";
-import Certificate from "@/views/PayUs/Certificate.vue";
-import Figma_system from "@/views/CoursesHome/Figma_system.vue";
-import FigmaSystem from "@/views/Courses/FigmaSystem.vue";
-import ReactNative from "@/views/CoursesHome/ReactNative.vue";
-import ReactNativeCourses from "@/views/Courses/ReactNativeCourses.vue";
-import AdvancedReactHandbook from "@/views/CoursesHome/React_Handbook.vue";
-import AdvancedReactHandbookCourses from "@/views/Courses/ReactHandbookCourses.vue";
-import SwiftUI_V14_P1 from "@/views/CoursesHome/SwiftUI_V14_P1.vue";
-import SwiftUI_V14_P1_Course from "@/views/Courses/SwiftUI_V14_P1_Course.vue";
-import SwiftUI_V14_P2 from "@/views/CoursesHome/SwiftUI_V14_P2.vue";
-import SwiftUI_V14_P2_Course from "@/views/Courses/SwiftUI_V14_P2_Course.vue";
-import SwiftUI_V14_P3 from "@/views/CoursesHome/SwiftUI_V14_P3.vue";
-import SwiftUI_V14_P3_Course from "@/views/Courses/SwiftUI_V14_P3_Course.vue";
-import React_Handbook from "@/views/CoursesHome/React_Handbook.vue";
-import ReactHandbookCourses from "@/views/Courses/ReactHandbookCourses.vue";
+
+const Home = () => import("@/views/Home.vue");
+const VideoHome = () => import("@/views/VideoHome.vue");
+const HoverCard = () => import("@/views/OtherPages/HoverCard/HoverCard.vue");
+const SignIn = () => import("@/views/SignIn.vue");
+const Recover = () => import("@/views/Recover.vue");
+const Request = () => import("@/views/Request.vue");
+const ReactCourses = () => import("@/views/Courses/ReactCourses.vue");
+const Advanced_react = () => import("@/views/CoursesHome/Advanced_react.vue");
+const VueDesigner = () => import("@/views/CoursesHome/VueDesigner.vue");
+const VueDesignerCourses = () =>
+  import("@/views/Courses/VueDesignerCourses.vue");
+const ReactHooks = () => import("@/views/CoursesHome/ReactHooks.vue");
+const ReactHooksCourses = () => import("@/views/Courses/ReactHooksCourses.vue");
+const WelcomePage = () => import("@/views/WelcomePage.vue");
+const Team = () => import("@/views/Team.vue");
+const NewsHome = () => import("@/views/News/NewsHome.vue");
+const Certificate = () => import("@/views/PayUs/Certificate.vue");
+const Figma_system = () => import("@/views/CoursesHome/Figma_system.vue");
+const FigmaSystem = () => import("@/views/Courses/FigmaSystem.vue");
+const ReactNative = () => import("@/views/CoursesHome/ReactNative.vue");
+const ReactNativeCourses = () =>
+  import("@/views/Courses/ReactNativeCourses.vue");
+const AdvancedReactHandbook = () =>
+  import("@/views/CoursesHome/React_Handbook.vue");
+const AdvancedReactHandbookCourses = () =>
+  import("@/views/Courses/ReactHandbookCourses.vue");
+const SwiftUI_V14_P1 = () => import("@/views/CoursesHome/SwiftUI_V14_P1.vue");
+const SwiftUI_V14_P1_Course = () =>
+  import("@/views/Courses/SwiftUI_V14_P1_Course.vue");
+const SwiftUI_V14_P2 = () => import("@/views/CoursesHome/SwiftUI_V14_P2.vue");
+const SwiftUI_V14_P2_Course = () =>
+  import("@/views/Courses/SwiftUI_V14_P2_Course.vue");
+const SwiftUI_V14_P3 = () => import("@/views/CoursesHome/SwiftUI_V14_P3.vue");
+const SwiftUI_V14_P3_Course = () =>
+  import("@/views/Courses/SwiftUI_V14_P3_Course.vue");
+const React_Handbook = () => import("@/views/CoursesHome/React_Handbook.vue");
+const ReactHandbookCourses = () =>
+  import("@/views/Courses/ReactHandbookCourses.vue");
 
 import { auth } from "@/main";
 
