@@ -215,8 +215,10 @@ export default {
 
 .backgroundWrap {
   position: relative;
+
   .waves {
     position: absolute;
+    width: 100%;
     z-index: 10;
     @media (max-width: 900px) {
       transform: scale(0.6);

@@ -361,7 +361,7 @@ a {
   font-weight: normal;
   font-size: 20px;
   line-height: 140%;
-  max-width: 712px;
+  max-width: 55vw;
   margin: 0 auto;
   text-align: start;
   padding: 0px 20px 100px;

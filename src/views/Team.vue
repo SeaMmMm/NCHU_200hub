@@ -171,6 +171,7 @@ export default {
   position: relative;
   .waves {
     position: absolute;
+    width: 100%;
     z-index: 10;
   }
   .Background {
@@ -213,7 +214,6 @@ export default {
   border-radius: 10px;
   margin: 20px;
   margin-top: 100px;
-  transform: scale(0.95);
 }
 
 .light-card {

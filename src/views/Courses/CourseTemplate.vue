@@ -13,24 +13,24 @@
         :src="
           require('@/assets/waves/certificate-wave' + this.randomWave5 + '.svg')
         "
-        style="top: 100px"
+        style="top: 50px; filter: blur(60px)"
       />
       <img
         class="waves course2"
         :src="require('@/assets/waves/hero-wave' + this.randomWave3 + '.svg')"
-        style="top: 350px"
+        style="top: 200px"
       />
       <img
         class="waves course3"
         :src="
           require('@/assets/waves/testimonial-wave' + this.randomWave5 + '.svg')
         "
-        style="top: 550px"
+        style="top: 300px"
       />
       <img
         class="waves course4"
         src="@/assets/waves/certificate-lines.svg"
-        style="top: 500px"
+        style="top: 450px"
       />
     </div>
     <div class="CourseWrapper">
@@ -191,12 +191,13 @@ export default {
   position: relative;
   .waves {
     position: absolute;
+    width: 100%;
     z-index: 10;
   }
   .Background {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 500px;
     @media (max-width: 900px) {
       height: 550px;
     }
@@ -235,7 +236,7 @@ export default {
 }
 .Coding {
   z-index: 1100;
-  margin-top: 430px;
+  margin-top: 20%;
   @media (max-width: 900px) {
     margin-top: 120px;
   }

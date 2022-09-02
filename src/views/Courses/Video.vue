@@ -5,9 +5,8 @@
     </div>
     <div class="iframe" v-show="showVideo">
       <iframe
-        height="400"
+        height="500"
         :src="src"
-        title="Can Can Need"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
