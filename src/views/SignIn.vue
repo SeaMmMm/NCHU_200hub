@@ -47,7 +47,6 @@
 
 <script>
 import RequestAccount from "@/components/group/signIn/RequestAccount.vue";
-import ThemeSwitch from "@/components/button/ThemeSwitch.vue";
 import Notification from "@/components/iframes/logOutAlert/Notification.vue";
 import Header from "@/components/Headers/Header.vue";
 import LoadingCard from "@/components/iframes/logOutAlert/LoadingCard.vue";
@@ -58,7 +57,6 @@ export default {
   name: "SignIn",
   components: {
     RequestAccount,
-    ThemeSwitch,
     Notification,
     Header,
     LoadingCard,
@@ -87,9 +85,7 @@ export default {
 
       auth
         .login(email, password, true)
-        .then((res) => {
-          // console.log("===sigin success ===", res);
-
+        .then(() => {
           window.localStorage.setItem("email", email);
 
           this.$refs.Load.shoutDown();
@@ -104,8 +100,7 @@ export default {
 
           this.$router.go(-1);
         })
-        .catch((err) => {
-          // console.log("===bad sigin", err);
+        .catch(() => {
           this.$refs.Load.shoutDown();
           this.$refs.Blur.style.display = "none";
           this.hasText = true;

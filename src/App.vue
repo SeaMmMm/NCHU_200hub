@@ -50,10 +50,10 @@ export default {
 * {
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   scrollbar-width: none;
-  -ms-overflow-style: none;
   border: none;
   text-decoration: none;
 }
+
 *::-webkit-scrollbar {
   display: none;
 }
@@ -208,8 +208,7 @@ h1.light {
 }
 
 li {
-  font-family: "HanziPen SC";
-  font-size: 16px;
+  font-family: "Cascadia Code";
   font-weight: 400;
   background: #0052d4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -234,7 +233,7 @@ h4 {
   line-height: 34px;
   font-size: 24px;
   text-align: center;
-  color: #ffffff;
+  color: #537754;
 }
 
 p {
@@ -361,7 +360,7 @@ a {
   font-weight: normal;
   font-size: 20px;
   line-height: 140%;
-  max-width: 55vw;
+  max-width: 900px;
   margin: 0 auto;
   text-align: start;
   padding: 0px 20px 100px;
@@ -411,7 +410,7 @@ a {
 
   p {
     text-align: left;
-    font-size: 20px;
+    font-size: 16px;
     color: #537791;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -421,8 +420,7 @@ a {
     text-decoration: none !important;
     font-weight: 600 !important;
     color: #1e2a78;
-    font-size: 20px;
-    font-family: "LingWai SC", "Cascadia Code";
+    font-family: "Cascadia Code";
   }
 
   blockquote {
@@ -430,7 +428,7 @@ a {
     background-repeat: no-repeat;
     background-position: 14px 2px;
     p {
-      font-size: 28px;
+      font-size: 16px;
       font-weight: 500;
       line-height: 140%;
     }
@@ -458,7 +456,7 @@ a {
       margin: 50px 20px;
     }
     p {
-      font-size: 18px;
+      font-size: 16px;
     }
     h2 {
       font-size: 28px;
@@ -482,7 +480,7 @@ a {
     blockquote {
       margin: 0;
       p {
-        font-size: 17px;
+        font-size: 16px;
       }
     }
   }

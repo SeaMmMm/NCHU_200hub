@@ -13,7 +13,7 @@ import VueDesignerCourses from "@/views/Courses/VueDesignerCourses.vue";
 import ReactHooks from "@/views/CoursesHome/ReactHooks.vue";
 import ReactHooksCourses from "@/views/Courses/ReactHooksCourses.vue";
 import WelcomePage from "@/views/WelcomePage.vue";
-import Team from "@/views/Team.vue";
+import Team from "@/views/TeamPage.vue";
 import NewsHome from "@/views/News/NewsHome.vue";
 import Certificate from "@/views/PayUs/Certificate.vue";
 import Figma_system from "@/views/CoursesHome/Figma_system.vue";

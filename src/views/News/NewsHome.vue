@@ -401,6 +401,7 @@ export default {
   }
 }
 .bottomWave {
+  width: 100%;
   @media (max-width: 900px) {
     height: 250px;
   }
@@ -433,6 +434,7 @@ export default {
   position: relative;
   .waves {
     position: absolute;
+    width: 100%;
     z-index: 10;
   }
   .Background {

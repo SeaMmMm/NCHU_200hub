@@ -1,6 +1,6 @@
 <template>
   <div class="manage">
-    <div class="backgroundWrap">
+    <!-- <div class="backgroundWrap">
       <div class="Background"></div>
       <img
         class="waves"
@@ -22,7 +22,7 @@
         src="@/assets/waves/footer-wave1.svg"
         style="top: 750px"
       />
-    </div>
+    </div> -->
     <div class="container">
       <div class="cards">
         <div class="SearchBox">

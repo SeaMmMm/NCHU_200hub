@@ -69,6 +69,12 @@
           {{ contents[0].description }}
         </p>
         <PurchaseButton v-show="!isPro" style="margin: 40px" />
+        <div @click="gotoHeader">
+          <ChangePage
+            class="UpperButton"
+            :url="require('@/assets/icons/previous_page.svg')"
+          />
+        </div>
       </div>
     </div>
     <div v-show="isPro" class="Coding">
@@ -118,6 +124,9 @@ export default {
     },
   },
   methods: {
+    gotoHeader() {
+      window.scrollTo(0, 0);
+    },
     prevPage() {
       if (this.index > 1) {
         this.index--;
@@ -152,6 +161,17 @@ export default {
 @import "@/global-styles/mixin.scss";
 @import "@/global-styles/colors.scss";
 @import "@/global-styles/typography.scss";
+
+.UpperButton {
+  transform: rotate(90deg);
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1) rotate(90deg);
+  }
+}
 
 .ChangePageButton {
   visibility: hidden;

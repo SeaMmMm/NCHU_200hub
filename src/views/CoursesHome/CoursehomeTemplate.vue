@@ -70,7 +70,7 @@
       v-show="isOnComputer"
       class="waves"
       src="@/assets/waves/footer-wave1.svg"
-      style="top: 750px"
+      style="width: 100%; filter: blur(2px)"
     />
   </div>
 </template>
