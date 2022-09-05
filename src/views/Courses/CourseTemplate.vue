@@ -69,11 +69,8 @@
           {{ contents[0].description }}
         </p>
         <PurchaseButton v-show="!isPro" style="margin: 40px" />
-        <div @click="gotoHeader">
-          <ChangePage
-            class="UpperButton"
-            :url="require('@/assets/icons/previous_page.svg')"
-          />
+        <div class="UpperButton" @click="gotoHeader">
+          <ChangePage :url="require('@/assets/icons/previous_page.svg')" />
         </div>
       </div>
     </div>
@@ -166,10 +163,15 @@ export default {
   transform: rotate(90deg);
   position: fixed;
   right: 40px;
-  bottom: 40px;
+  bottom: 100px;
   &:hover {
     cursor: pointer;
-    transform: scale(1.1) rotate(90deg);
+    transform: rotate(90deg);
+  }
+  @media (max-width: 900px) {
+    right: 0px;
+    bottom: 100px;
+    transform: scale(0.9) rotate(90deg);
   }
 }
 
