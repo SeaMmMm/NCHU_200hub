@@ -88,6 +88,7 @@ import PurchaseButton from "@/components/button/PurchaseButton.vue";
 import ChangePage from "@/components/button/ChangePage.vue";
 
 export default {
+  inject: ["reload"],
   async created() {
     this.total = Number(this.$route.query.total);
     this.index = Number(this.$route.query.index);
@@ -134,7 +135,7 @@ export default {
             total: this.total,
           },
         });
-        location.reload();
+        this.reload();
       }
     },
     nextPage() {

@@ -4,7 +4,7 @@
     :class="{ 'light-background': !isDarkMode, 'dark-background': isDarkMode }"
   >
     <keep-alive include="SignIn,Request">
-      <router-view />
+      <router-view v-if="isRouter" />
     </keep-alive>
   </div>
 </template>
@@ -14,6 +14,17 @@ import "animate.css";
 
 export default {
   name: "App",
+  data() {
+    return {
+      isRouter: true,
+    };
+  },
+  provide() {
+    return {
+      // 注入重新加载函数
+      reload: this.reload,
+    };
+  },
   computed: {
     isDarkMode() {
       return this.$store.getters.isDarkMode;
@@ -22,6 +33,18 @@ export default {
   mounted() {
     const isDarkMode = this.$store.getters.isDarkMode;
     document.body.style.background = isDarkMode ? "#212c4f" : "#f8f9fa";
+  },
+  methods: {
+    /**
+     * 自定义刷新函数
+     * 本质上就是修改 v-if 中所绑定的Boolean值
+     */
+    reload() {
+      this.isRouter = false;
+      this.$nextTick(function () {
+        this.isRouter = true;
+      });
+    },
   },
 };
 </script>
