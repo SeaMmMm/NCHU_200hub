@@ -13,7 +13,7 @@
         :src="
           require('@/assets/waves/certificate-wave' + this.randomWave5 + '.svg')
         "
-        style="top: 50px; filter: blur(60px)"
+        style="top: -40px; filter: blur(60px)"
       />
       <img
         class="waves course2"
@@ -52,6 +52,7 @@
           <ChangePage :url="require('@/assets/icons/next_page.svg')" />
         </div>
         <img
+          v-if="contents[0].illustration"
           :src="contents[0].illustration.url"
           :alt="url"
           class="Illustration"
@@ -105,7 +106,10 @@ export default {
     }
   },
   components: { MarkdownItVue, PurchaseButton, ChangePage },
-  props: ["contents", "where"],
+  props: {
+    contents: Array,
+    where: String,
+  },
   data() {
     return {
       index: 0,
@@ -220,10 +224,7 @@ export default {
   .Background {
     position: absolute;
     width: 100vw;
-    height: 500px;
-    @media (max-width: 900px) {
-      height: 550px;
-    }
+    height: 400px;
     background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
     z-index: 10;
   }

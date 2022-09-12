@@ -38,6 +38,7 @@
             @click="goTeams(content.index, contents.length)"
           >
             <img
+              v-if="content.illustration"
               :src="content.illustration.url"
               class="card-header"
               :class="{
@@ -109,6 +110,7 @@ export default {
     this.contents.sort((a, b) => {
       return a.index - b.index;
     });
+    console.log(this.contents);
     if (document.body.clientWidth <= 900) this.isOnComputer = false;
     if (this.contents.length === 0) this.havContent = false;
   },
