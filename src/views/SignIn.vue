@@ -46,15 +46,15 @@
 </template>
 
 <script>
-import RequestAccount from "@/components/group/signIn/RequestAccount.vue";
-import Notification from "@/components/iframes/logOutAlert/Notification.vue";
-import Header from "@/components/Headers/Header.vue";
-import LoadingCard from "@/components/iframes/logOutAlert/LoadingCard.vue";
+import RequestAccount from '@/components/group/signIn/RequestAccount.vue'
+import Notification from '@/components/iframes/logOutAlert/Notification.vue'
+import Header from '@/components/Headers/Header.vue'
+import LoadingCard from '@/components/iframes/logOutAlert/LoadingCard.vue'
 
-import { auth } from "@/main";
+import { auth } from '@/main'
 
 export default {
-  name: "SignIn",
+  name: 'SignIn',
   components: {
     RequestAccount,
     Notification,
@@ -66,68 +66,68 @@ export default {
       email: null,
       password: null,
       hasText: false,
-      text: "",
-    };
+      text: '',
+    }
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
   methods: {
     onSubmit() {
-      const email = this.email;
-      const password = this.password;
-      this.hasText = false;
+      const email = this.email
+      const password = this.password
+      this.hasText = false
 
-      this.$refs.Load.showLoading();
-      this.$refs.Blur.style.display = "block";
+      this.$refs.Load.showLoading()
+      this.$refs.Blur.style.display = 'block'
 
       auth
         .login(email, password, true)
         .then(() => {
-          window.localStorage.setItem("email", email);
+          window.localStorage.setItem('email', email)
 
-          this.$refs.Load.shoutDown();
-          this.$refs.Blur.style.display = "none";
+          this.$refs.Load.shoutDown()
+          this.$refs.Blur.style.display = 'none'
 
           this.$notify({
-            title: "登陆成功",
-            message: "Welcome Home!!! 💃",
-            type: "success",
+            title: '登陆成功',
+            message: 'Welcome Home!!! 💃',
+            type: 'success',
             duration: 1500,
-          });
+          })
 
-          this.$router.go(-1);
+          this.$router.go(-1)
         })
         .catch(() => {
-          this.$refs.Load.shoutDown();
-          this.$refs.Blur.style.display = "none";
-          this.hasText = true;
-          this.text = "账号/密码有误 or 账号不存在";
-        });
+          this.$refs.Load.shoutDown()
+          this.$refs.Blur.style.display = 'none'
+          this.hasText = true
+          this.text = '账号/密码有误 or 账号不存在'
+        })
     },
   },
   mounted() {
-    const params = this.$route.params;
+    const params = this.$route.params
 
     if (params.userLoggedOut) {
-      this.hasText = true;
-      this.text = "一曲离歌两行泪，不知何地再逢君👋🏿";
+      this.hasText = true
+      this.text = '一曲离歌两行泪，不知何地再逢君👋🏿'
     } else if (params.userRecoveredAccount) {
-      this.hasText = true;
-      this.text = `恢复邮件已发送给${params.email}，自己等去吧`;
+      this.hasText = true
+      this.text = `恢复邮件已发送给${params.email}`
     } else if (params.userRequestedAccount) {
-      this.hasText = true;
-      this.text = `邮箱已发送，请前往${params.email}验证`;
+      this.hasText = true
+      this.text = `邮箱已发送，请前往${params.email}验证`
     }
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 .container {
   display: flex;
   justify-content: center;

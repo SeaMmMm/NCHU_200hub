@@ -12,7 +12,7 @@
       <div class="Descriptions">
         <div class="DesDescription">
           <div class="topDescription">NCHU_200hub 正因有你，</div>
-          <div class="Username">{{ email || "还在裸奔的游客😳" }}</div>
+          <div class="Username">{{ email || '还在裸奔的游客😳' }}</div>
           <div class="footerGrid">
             <div class="footerNormal">hub</div>
             <div class="HotelName">day day up</div>
@@ -40,12 +40,12 @@ export default {
   data() {
     return {
       email: null,
-    };
+    }
   },
   created() {
-    this.email = localStorage.getItem("email");
+    this.email = localStorage.getItem('email')
   },
-};
+}
 </script>
 
 <style scoped>
@@ -59,7 +59,7 @@ export default {
   min-width: 600px;
   min-height: 400px;
   z-index: 1000;
-  background-image: url("@/assets/svg/Certificate.svg");
+  background-image: url('@/assets/svg/Certificate.svg');
   background-size: 100%;
   display: grid;
   grid-template-rows: auto;
@@ -78,7 +78,7 @@ export default {
   border: none;
 }
 #WelcomeText {
-  font-family: "HanziPen SC";
+  font-family: 'HanziPen SC';
   font-style: normal;
   font-weight: 400;
   font-size: 64px;
@@ -105,14 +105,14 @@ export default {
 }
 .topDescription {
   padding-top: 2%;
-  font-family: "ABeeZee";
+  font-family: 'ABeeZee';
   font-weight: 400;
   font-size: 15px;
   line-height: 130%;
   color: rgba(0, 0, 0, 0.7);
 }
 .Username {
-  font-family: "ABeeZee";
+  font-family: 'ABeeZee';
   font-style: italic;
   font-weight: 400;
   font-size: 50px;
@@ -126,7 +126,7 @@ export default {
   align-items: center;
 }
 .footerNormal {
-  font-family: "ABeeZee";
+  font-family: 'ABeeZee';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -134,7 +134,7 @@ export default {
   color: rgba(0, 0, 0, 0.7);
 }
 .HotelName {
-  font-family: "LingWai SC";
+  font-family: 'LingWai SC';
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -160,7 +160,7 @@ export default {
 }
 .MoreImformation {
   text-decoration: none;
-  font-family: "SF Pro Text";
+  font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 600;
   font-size: 13px;
@@ -168,7 +168,7 @@ export default {
   color: #00cffd;
 }
 #bottomTxtHotel {
-  font-family: "HanziPen SC";
+  font-family: 'HanziPen SC';
   font-weight: 500;
   font-size: 25px;
   line-height: 130%;

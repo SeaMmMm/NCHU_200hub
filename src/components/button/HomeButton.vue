@@ -21,15 +21,15 @@
 </template>
 
 <script>
-import "@/global-styles/mixin.scss";
+import '@/global-styles/mixin.scss'
 export default {
-  name: "HomeButton",
-  props: ["isColorReversed", "description", "where"],
-};
+  name: 'HomeButton',
+  props: ['isColorReversed', 'description', 'where'],
+}
 </script>
 
 <style lang="scss" scoped>
-@import "@/global-styles/mixin.scss";
+@import '@/global-styles/mixin.scss';
 .HomeButton {
   :hover {
     .PurpleTangle {

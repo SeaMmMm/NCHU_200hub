@@ -16,18 +16,18 @@
 
 <script>
 export default {
-  name: "ThemeSwitch",
+  name: 'ThemeSwitch',
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
   methods: {
     toggleDarkMode() {
-      this.$store.commit("toggleDarkMode");
+      this.$store.commit('toggleDarkMode')
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">

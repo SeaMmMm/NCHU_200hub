@@ -42,26 +42,25 @@
 </template>
 
 <script>
-import { auth } from "@/main";
+import { auth } from '@/main'
 
-import Header from "@/components/Headers/Header.vue";
+import Header from '@/components/Headers/Header.vue'
 export default {
-  name: "Request",
   components: { Header },
   data() {
     return {
       email: null,
       password: null,
-    };
+    }
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
   methods: {
     onSubmit() {
-      const email = this.email;
+      const email = this.email
       /* 发送到slack上面有问题 -> 更新了有些东西,后面再改
       // Slack API logic
       let slackURL = new URL("https://slack.com/api/chat.postMessage");
@@ -89,25 +88,25 @@ export default {
       auth
         .signup(this.email, this.password)
         .then((response) => {
-          console.log("Confirmation email sent", response);
+          console.log('Confirmation email sent', response)
           this.$router.push({
-            name: "signin",
+            name: 'signin',
             params: {
               userRequestedAccount: true,
               email: email,
             },
-          });
+          })
         })
         .catch((error) => {
           this.$notify.error({
-            title: "创建失败",
+            title: '创建失败',
             message: error.message,
             duration: 2000,
-          });
-        });
+          })
+        })
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">

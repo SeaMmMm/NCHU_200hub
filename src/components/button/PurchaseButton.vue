@@ -15,10 +15,10 @@
 export default {
   methods: {
     goSignIn() {
-      this.$router.push("/signin");
+      this.$router.push('/signin')
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

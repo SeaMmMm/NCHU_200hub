@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import LiveInCard from "./LiveInCard.vue";
-import BackButton from "@/components/button/BackButton.vue";
-import ShotBottom from "@/components/button/ShotBottom.vue";
+import LiveInCard from './LiveInCard.vue'
+import BackButton from '@/components/button/BackButton.vue'
+import ShotBottom from '@/components/button/ShotBottom.vue'
 export default {
   components: {
     LiveInCard,
     BackButton,
     ShotBottom,
   },
-};
+}
 </script>
 
 <style scoped>

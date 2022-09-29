@@ -76,30 +76,30 @@ export default {
     return {
       currentScroll: 0,
       contents: [],
-      searchText: "",
-    };
+      searchText: '',
+    }
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
     contentsTemplate() {
-      if (this.searchText === "") {
-        return this.contents;
+      if (this.searchText === '') {
+        return this.contents
       } else {
         return this.contents.filter((item) => {
-          const lower = item.title.toLowerCase();
-          return lower.includes(this.searchText.toLowerCase());
-        });
+          const lower = item.title.toLowerCase()
+          return lower.includes(this.searchText.toLowerCase())
+        })
       }
     },
   },
   async created() {
-    this.contents = await this.getContents();
+    this.contents = await this.getContents()
   },
   methods: {
     goCourses(url) {
-      this.$router.push(url);
+      this.$router.push(url)
     },
     getContents: async () => {
       const query = `{
@@ -115,34 +115,34 @@ export default {
           }
         }
       }
-      `;
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`;
+      `
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`
 
       const fetchOptions = {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query }),
-      };
+      }
 
       try {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
-        );
-        return response.data.courseCardsCollection.items;
+        )
+        return response.data.courseCardsCollection.items
       } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
+        throw new Error('Could not receive the data from Contentful!')
       }
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 
 .SearchBox {
   z-index: 900;

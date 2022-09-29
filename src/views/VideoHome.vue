@@ -103,11 +103,11 @@
 </template>
 
 <script>
-import VideoTopMenu from "@/components/sections/movieHome_section/VideoTopMenu.vue";
-import VideoCarousels from "@/components/sections/movieHome_section/VideoCarousels.vue";
-import VideoTV from "@/components/sections/movieHome_section/VideoTV.vue";
-import AllSortsVideo from "@/components/sections/movieHome_section/AllSortsVideo.vue";
-import FooterVideoHome from "@/components/group/movieHome/footer/FooterVideoHome.vue";
+import VideoTopMenu from '@/components/sections/movieHome_section/VideoTopMenu.vue'
+import VideoCarousels from '@/components/sections/movieHome_section/VideoCarousels.vue'
+import VideoTV from '@/components/sections/movieHome_section/VideoTV.vue'
+import AllSortsVideo from '@/components/sections/movieHome_section/AllSortsVideo.vue'
+import FooterVideoHome from '@/components/group/movieHome/footer/FooterVideoHome.vue'
 
 export default {
   components: {
@@ -118,37 +118,37 @@ export default {
     FooterVideoHome,
   },
   created() {
-    const params = this.$route.params;
+    const params = this.$route.params
     if (document.body.clientWidth <= 900) {
-      this.isOnComputer = false;
+      this.isOnComputer = false
     }
     if (params.hasLogin) {
-      this.hasLogin = true;
+      this.hasLogin = true
     }
   },
 
   data() {
     return {
       isOnComputer: true,
-    };
+    }
   },
   methods: {
     toggleDarkMode() {
-      this.$store.commit("toggleDarkMode");
+      this.$store.commit('toggleDarkMode')
     },
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scopde>
-@import "@/global-styles/mixin.scss";
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/mixin.scss';
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 
 .backgroundWrap {
   position: relative;

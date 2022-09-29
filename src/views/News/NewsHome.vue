@@ -239,126 +239,126 @@
 </template>
 
 <script>
-import axios from "axios";
-import "markdown-it-vue/dist/markdown-it-vue.css";
+import axios from 'axios'
+import 'markdown-it-vue/dist/markdown-it-vue.css'
 export default {
   data() {
     return {
-      value: "",
+      value: '',
       options: [
-        "arts",
-        "automobiles",
-        "books",
-        "business",
-        "fashion",
-        "food",
-        "health",
-        "home",
-        "insider",
-        "magazine",
-        "movies",
-        "nyregion",
-        "obituaries",
-        "opinion",
-        "politics",
-        "realestate",
-        "science",
-        "sports",
-        "sundayreview",
-        "technology",
-        "theater",
-        "t-magazine",
-        "travel",
-        "upshot",
-        "us",
-        "world",
+        'arts',
+        'automobiles',
+        'books',
+        'business',
+        'fashion',
+        'food',
+        'health',
+        'home',
+        'insider',
+        'magazine',
+        'movies',
+        'nyregion',
+        'obituaries',
+        'opinion',
+        'politics',
+        'realestate',
+        'science',
+        'sports',
+        'sundayreview',
+        'technology',
+        'theater',
+        't-magazine',
+        'travel',
+        'upshot',
+        'us',
+        'world',
       ],
-      searchText: "",
+      searchText: '',
       currentScroll: 0,
       contents: [],
       searchContents: [],
       sortContents: [],
-    };
+    }
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
   created() {
     this.$notify({
-      title: "警告",
-      message: "本网页需挂载vpn 才能正常使用",
-      type: "warning",
-    });
+      title: '警告',
+      message: '本网页需挂载vpn 才能正常使用',
+      type: 'warning',
+    })
     axios
       .get(
-        "https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V"
+        'https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V'
       )
       .then((res) => {
-        this.contents = res.data.results;
+        this.contents = res.data.results
         // console.log("===contents===", this.contents);
       })
       .catch((error) => {
         this.$notify.error({
-          title: "错误",
+          title: '错误',
           message: error.message,
-        });
-      });
+        })
+      })
   },
   watch: {
     value(newValue) {
-      if (this.value !== "") {
-        this.contents = null;
-        this.searchContents = null;
+      if (this.value !== '') {
+        this.contents = null
+        this.searchContents = null
         axios
           .get(
             `https://api.nytimes.com/svc/topstories/v2/${newValue}.json?api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V`
           )
           .then((res) => {
-            this.sortContents = res.data.results;
+            this.sortContents = res.data.results
           })
           .catch((error) => {
             this.$notify.error({
-              title: "错误",
+              title: '错误',
               message: error.message,
-            });
-          });
+            })
+          })
       }
     },
   },
   methods: {
     gotoNews(url) {
-      window.open(url);
+      window.open(url)
     },
     Search() {
-      this.contents = null;
-      this.sortContents = null;
-      this.searchContents = null;
-      this.value = "";
-      const searchText = this.searchText;
+      this.contents = null
+      this.sortContents = null
+      this.searchContents = null
+      this.value = ''
+      const searchText = this.searchText
       axios
         .get(
           `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchText}&api-key=eco48CkOZ9zfzvSUDH5AMeUcvFUdmP7V`
         )
         .then((res) => {
-          this.searchContents = res.data.response.docs;
-          console.log(this.searchContents);
+          this.searchContents = res.data.response.docs
+          console.log(this.searchContents)
         })
         .catch((error) => {
           this.$notify.error({
-            title: "错误",
+            title: '错误',
             message: error.message,
-          });
-        });
+          })
+        })
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 
 .NewsFooter {
   display: grid;
@@ -366,14 +366,14 @@ export default {
   padding: 16px;
 }
 .NewsTitle {
-  font-family: nyt-cheltenham-cond, nyt-cheltenham, georgia, "times new roman",
+  font-family: nyt-cheltenham-cond, nyt-cheltenham, georgia, 'times new roman',
     times, serif;
 }
 .NewsDescription {
-  font-family: nyt-imperial, georgia, "times new roman", times, serif;
+  font-family: nyt-imperial, georgia, 'times new roman', times, serif;
 }
 .NewsDescription2 {
-  font-family: nyt-imperial, georgia, "times new roman", times, serif;
+  font-family: nyt-imperial, georgia, 'times new roman', times, serif;
   font-size: 10px;
   font-weight: normal;
 }

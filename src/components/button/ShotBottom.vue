@@ -5,16 +5,16 @@
 </template>
 
 <script>
-import html2canvas from "html2canvas";
+import html2canvas from 'html2canvas'
 export default {
   methods: {
     //截图方法
     //截图
     screenShot() {
-      this.$refs.Shot.style.display = "none";
+      this.$refs.Shot.style.display = 'none'
       //获取页面dom
       //这里的html标签是获取页面最大的dom元素；根据实际业务场景自行更改
-      const el = document.querySelector("div");
+      const el = document.querySelector('div')
       html2canvas(el, {
         allowTaint: true,
         backgroundColor: null, //画出来的图片有白色的边框,不要可设置背景为透明色（null）
@@ -22,15 +22,15 @@ export default {
       }).then((canvas) => {
         //document.body.appendChild(canvas)  页面布局会乱
         //转换base64
-        const capture = canvas.toDataURL("image/jpg");
+        const capture = canvas.toDataURL('image/jpg')
         //下载浏览器弹出下载信息的属性
         const saveInfo = {
           //导出文件格式自己定义，我这里用的是时间作为文件名
-          download: "Certificate" + `.jpg`,
+          download: 'Certificate' + `.jpg`,
           href: capture,
-        };
+        }
         //下载，浏览器弹出下载文件提示
-        this.downloadFile(saveInfo);
+        this.downloadFile(saveInfo)
 
         //调用保存接口 如果需要后台保存，放开注释
         /*   uploadImage({capture:capture}).then(res => {
@@ -38,27 +38,27 @@ export default {
             this.$message.success("截取成功！")
           }
         });*/
-      });
+      })
       setTimeout(() => {
-        this.$refs.Shot.style.display = "block";
-      }, 2000);
+        this.$refs.Shot.style.display = 'block'
+      }, 2000)
     },
 
     //下载截图
     downloadFile(saveInfo) {
-      const element = document.createElement("a");
-      element.style.display = "none";
+      const element = document.createElement('a')
+      element.style.display = 'none'
       for (const key in saveInfo) {
-        element.setAttribute(key, saveInfo[key]);
+        element.setAttribute(key, saveInfo[key])
       }
-      document.body.appendChild(element);
-      element.click();
+      document.body.appendChild(element)
+      element.click()
       setTimeout(() => {
-        document.body.removeChild(element);
-      }, 300);
+        document.body.removeChild(element)
+      }, 300)
     },
   },
-};
+}
 </script>
 
 <style scoped>

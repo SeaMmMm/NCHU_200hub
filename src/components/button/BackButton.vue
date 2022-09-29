@@ -11,10 +11,10 @@
 export default {
   methods: {
     prev() {
-      this.$router.back();
+      this.$router.back()
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -42,7 +42,7 @@ export default {
   gap: 20px;
 }
 #Text {
-  font-family: "SF Pro Text";
+  font-family: 'SF Pro Text';
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
