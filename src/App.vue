@@ -36,11 +36,11 @@ export default {
 }
 @font-face {
   font-family: 'LingWai SC';
-  src: url('@/assets/LingWaiSC.ttf') format('truetype');
+  src: url('@/assets/dank-mono-italic.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Cascadia Code';
-  src: url('@/assets/CascadiaCode.ttf') format('truetype');
+  src: url('@/assets/dank-mono-italic.ttf') format('truetype');
 }
 
 @import '@/global-styles/colors.scss';
