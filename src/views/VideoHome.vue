@@ -22,7 +22,10 @@
         />
       </div>
       <VideoTopMenu :isOnComputer="isOnComputer" />
-      <VideoCarousels style="margin-top: 100px" :isOnComputer="isOnComputer" />
+      <VideoCarousels
+        style="margin-top: 100px"
+        :isOnComputer="isOnComputer"
+      />
       <div class="backgroundWrap">
         <img
           class="waves"
@@ -75,7 +78,11 @@
       </div>
       <AllSortsVideo :isOnComputer="isOnComputer" />
       <div class="backgroundWrap">
-        <img class="waves" src="@/assets/waves/cube1.svg" style="top: 190px" />
+        <img
+          class="waves"
+          src="@/assets/waves/cube1.svg"
+          style="top: 190px"
+        />
         <img
           class="waves"
           src="@/assets/waves/footer-wave1.svg"
@@ -103,76 +110,76 @@
 </template>
 
 <script>
-import VideoTopMenu from '@/components/sections/movieHome_section/VideoTopMenu.vue'
-import VideoCarousels from '@/components/sections/movieHome_section/VideoCarousels.vue'
-import VideoTV from '@/components/sections/movieHome_section/VideoTV.vue'
-import AllSortsVideo from '@/components/sections/movieHome_section/AllSortsVideo.vue'
-import FooterVideoHome from '@/components/group/movieHome/footer/FooterVideoHome.vue'
+  import VideoTopMenu from '@/components/sections/movieHome_section/VideoTopMenu.vue'
+  import VideoCarousels from '@/components/sections/movieHome_section/VideoCarousels.vue'
+  import VideoTV from '@/components/sections/movieHome_section/VideoTV.vue'
+  import AllSortsVideo from '@/components/sections/movieHome_section/AllSortsVideo.vue'
+  import FooterVideoHome from '@/components/group/movieHome/footer/FooterVideoHome.vue'
 
-export default {
-  components: {
-    VideoTopMenu,
-    VideoCarousels,
-    AllSortsVideo,
-    VideoTV,
-    FooterVideoHome,
-  },
-  created() {
-    const params = this.$route.params
-    if (document.body.clientWidth <= 900) {
-      this.isOnComputer = false
-    }
-    if (params.hasLogin) {
-      this.hasLogin = true
-    }
-  },
+  export default {
+    components: {
+      VideoTopMenu,
+      VideoCarousels,
+      AllSortsVideo,
+      VideoTV,
+      FooterVideoHome,
+    },
+    created() {
+      const params = this.$route.params
+      if (document.body.clientWidth <= 900) {
+        this.isOnComputer = false
+      }
+      if (params.hasLogin) {
+        this.hasLogin = true
+      }
+    },
 
-  data() {
-    return {
-      isOnComputer: true,
-    }
-  },
-  methods: {
-    toggleDarkMode() {
-      this.$store.commit('toggleDarkMode')
+    data() {
+      return {
+        isOnComputer: true,
+      }
     },
-  },
-  computed: {
-    isDarkMode() {
-      return this.$store.getters.isDarkMode
+    methods: {
+      toggleDarkMode() {
+        this.$store.commit('toggleDarkMode')
+      },
     },
-  },
-}
+    computed: {
+      isDarkMode() {
+        return this.$store.getters.isDarkMode
+      },
+    },
+  }
 </script>
 
 <style lang="scss" scopde>
-@import '@/global-styles/mixin.scss';
-@import '@/global-styles/colors.scss';
-@import '@/global-styles/typography.scss';
+  @import '@/global-styles/mixin.scss';
+  @import '@/global-styles/colors.scss';
+  @import '@/global-styles/typography.scss';
 
-.backgroundWrap {
-  position: relative;
-  .waves {
-    position: absolute;
-    z-index: 10;
-    @media (max-width: 900px) {
-      transform: scale(0.6);
-      left: -400px;
+  .backgroundWrap {
+    position: relative;
+    .waves {
+      position: absolute;
+      z-index: 10;
+      @media (max-width: 900px) {
+        transform: scale(0.6);
+        left: -400px;
+      }
+    }
+    .Background {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
+      z-index: 10;
     }
   }
-  .Background {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(180deg, #4316db 0%, #9076e7 100%);
-    z-index: 10;
-  }
-}
 
-.light-background {
-  background: rgb(242, 246, 255);
-}
-.dark-background {
-  background: $dark-blue;
-}
+  .light-background {
+    background: rgb(242, 246, 255);
+  }
+  .dark-background {
+    background: $dark-blue;
+  }
 </style>

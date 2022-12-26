@@ -29,36 +29,38 @@
             placeholder="搜索"
           />
         </div>
-        <template v-for="content in contentsTemplate">
-          <a
-            :key="content.title"
-            class="card"
-            style="cursor: pointer; z-index: 1000"
-            :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
-            @click="goTeams(content.index, contents.length)"
+        <a
+          v-for="content in contentsTemplate"
+          :key="content.title"
+          class="card"
+          style="cursor: pointer; z-index: 1000"
+          :class="{
+            'light-card': !isDarkMode,
+            'dark-card': isDarkMode,
+          }"
+          @click="goTeams(content.index, contents.length)"
+        >
+          <img
+            v-if="content.illustration"
+            :src="content.illustration.url"
+            class="card-header"
+            :class="{
+              'light-header': !isDarkMode,
+              'dark-header': isDarkMode,
+            }"
+          />
+          <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
+            {{ content.title }}
+          </h3>
+          <p
+            :class="{
+              'light-text': isDarkMode,
+              'dark-text': !isDarkMode,
+            }"
           >
-            <img
-              v-if="content.illustration"
-              :src="content.illustration.url"
-              class="card-header"
-              :class="{
-                'light-header': !isDarkMode,
-                'dark-header': isDarkMode,
-              }"
-            />
-            <h3 :class="{ dark: !isDarkMode, light: isDarkMode }">
-              {{ content.title }}
-            </h3>
-            <p
-              :class="{
-                'light-text': isDarkMode,
-                'dark-text': !isDarkMode,
-              }"
-            >
-              {{ content.description }}
-            </p>
-          </a>
-        </template>
+            {{ content.description }}
+          </p>
+        </a>
       </div>
       <img
         v-else
@@ -77,42 +79,42 @@
 </template>
 
 <script>
-import "markdown-it-vue/dist/markdown-it-vue.css";
+import 'markdown-it-vue/dist/markdown-it-vue.css'
 
 export default {
   data() {
     return {
-      searchText: "",
+      searchText: '',
       currentScroll: 0,
       contents: [],
       isOnComputer: true,
       havContent: true,
-    };
+    }
   },
-  props: ["query", "where"],
+  props: ['query', 'where'],
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
     contentsTemplate() {
-      if (this.searchText === "") {
-        return this.contents;
+      if (this.searchText === '') {
+        return this.contents
       } else {
-        return this.contents.filter((item) => {
-          const lower = item.title.toLowerCase();
-          return lower.includes(this.searchText.toLowerCase());
-        });
+        return this.contents.filter(item => {
+          const lower = item.title.toLowerCase()
+          return lower.includes(this.searchText.toLowerCase())
+        })
       }
     },
   },
   async created() {
-    this.contents = await this.getcartoonUrl();
+    this.contents = await this.getcartoonUrl()
     this.contents.sort((a, b) => {
-      return a.index - b.index;
-    });
-    console.log(this.contents);
-    if (document.body.clientWidth <= 900) this.isOnComputer = false;
-    if (this.contents.length === 0) this.havContent = false;
+      return a.index - b.index
+    })
+    console.log(this.contents)
+    if (document.body.clientWidth <= 900) this.isOnComputer = false
+    if (this.contents.length === 0) this.havContent = false
   },
   methods: {
     goTeams(index, total) {
@@ -122,7 +124,7 @@ export default {
           index: index,
           total: total,
         },
-      });
+      })
     },
     async getcartoonUrl() {
       const query = `{
@@ -138,34 +140,34 @@ export default {
         }
       }
     }
-    `;
-      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`;
+    `
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`
 
       const fetchOptions = {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query }),
-      };
+      }
 
       try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+        const response = await fetch(fetchUrl, fetchOptions).then(response =>
           response.json()
-        );
-        return response.data[this.query].items;
+        )
+        return response.data[this.query].items
       } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
+        throw new Error('Could not receive the data from Contentful!')
       }
     },
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 
 @keyframes Op {
   from {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import CourseTemplate from "@/views/Courses/CourseTemplate.vue"
+import CourseTemplate from '@/views/Courses/CourseTemplate.vue'
 
 export default {
   async created() {
@@ -36,21 +36,21 @@ export default {
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}/`
 
       const fetchOptions = {
-        method: "POST",
+        method: 'POST',
         headers: {
           Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query }),
       }
 
       try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+        const response = await fetch(fetchUrl, fetchOptions).then(response =>
           response.json()
         )
         return response.data.advancedReactHandbookCollection.items
       } catch (error) {
-        throw new Error("Could not receive the data from Contentful!")
+        throw new Error('Could not receive the data from Contentful!')
       }
     },
   },

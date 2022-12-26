@@ -1,28 +1,5 @@
 <template>
   <div class="manage">
-    <!-- <div class="backgroundWrap">
-      <div class="Background"></div>
-      <img
-        class="waves"
-        src="@/assets/waves/hero-wave1.svg"
-        style="top: 100px; filter: blur(60px)"
-      />
-      <img
-        class="waves"
-        src="@/assets/waves/hero-wave2.svg"
-        style="top: 350px"
-      />
-      <img
-        class="waves"
-        src="@/assets/waves/hero-wave3.svg"
-        style="top: 550px"
-      />
-      <img
-        class="waves"
-        src="@/assets/waves/footer-wave1.svg"
-        style="top: 750px"
-      />
-    </div> -->
     <div class="container">
       <div class="cards">
         <div class="SearchBox">
@@ -87,7 +64,7 @@ export default {
       if (this.searchText === '') {
         return this.contents
       } else {
-        return this.contents.filter((item) => {
+        return this.contents.filter(item => {
           const lower = item.title.toLowerCase()
           return lower.includes(this.searchText.toLowerCase())
         })
@@ -128,7 +105,7 @@ export default {
       }
 
       try {
-        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+        const response = await fetch(fetchUrl, fetchOptions).then(response =>
           response.json()
         )
         return response.data.courseCardsCollection.items

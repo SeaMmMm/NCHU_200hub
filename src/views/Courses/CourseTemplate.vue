@@ -83,26 +83,26 @@
 </template>
 
 <script>
-import MarkdownItVue from "markdown-it-vue";
+import MarkdownItVue from 'markdown-it-vue'
 
-import PurchaseButton from "@/components/button/PurchaseButton.vue";
-import ChangePage from "@/components/button/ChangePage.vue";
+import PurchaseButton from '@/components/button/PurchaseButton.vue'
+import ChangePage from '@/components/button/ChangePage.vue'
 
 export default {
-  inject: ["reload"],
+  inject: ['reload'],
   async created() {
-    this.total = Number(this.$route.query.total);
-    this.index = Number(this.$route.query.index);
+    this.total = Number(this.$route.query.total)
+    this.index = Number(this.$route.query.index)
 
-    if (window.localStorage.getItem("email") !== null) {
-      this.isPro = true;
+    if (window.localStorage.getItem('email') !== null) {
+      this.isPro = true
     }
 
-    this.randomWave3 = Math.floor(Math.random() * 3 + 1);
-    this.randomWave5 = Math.floor(Math.random() * 4 + 1);
+    this.randomWave3 = Math.floor(Math.random() * 3 + 1)
+    this.randomWave5 = Math.floor(Math.random() * 4 + 1)
 
     if (document.body.clientWidth < 900) {
-      this.isOnComputer = false;
+      this.isOnComputer = false
     }
   },
   components: { MarkdownItVue, PurchaseButton, ChangePage },
@@ -118,51 +118,51 @@ export default {
       randomWave3: 1,
       randomWave5: 1,
       isOnComputer: true,
-    };
+    }
   },
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode;
+      return this.$store.getters.isDarkMode
     },
   },
   methods: {
     gotoHeader() {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0)
     },
     prevPage() {
       if (this.index > 1) {
-        this.index--;
+        this.index--
         this.$router.push({
           place: this.where,
           query: {
             index: this.index,
             total: this.total,
           },
-        });
-        this.reload();
+        })
+        this.reload()
       }
     },
     nextPage() {
       if (this.index < this.total) {
-        this.index++;
+        this.index++
         this.$router.push({
           name: this.where,
           query: {
             index: this.index,
             total: this.total,
           },
-        });
-        location.reload();
+        })
+        location.reload()
       }
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "@/global-styles/mixin.scss";
-@import "@/global-styles/colors.scss";
-@import "@/global-styles/typography.scss";
+@import '@/global-styles/mixin.scss';
+@import '@/global-styles/colors.scss';
+@import '@/global-styles/typography.scss';
 
 .UpperButton {
   transform: rotate(90deg);
