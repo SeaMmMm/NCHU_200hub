@@ -16,19 +16,12 @@
         </div>
       </div>
     </div>
-    <MicleBird class="micleBird" />
-    <Liner class="liner" />
   </div>
 </template>
 
 <script>
-import MicleBird from "@/components/iframes/inHome/MicleBirds.vue";
-import Liner from "@/components/iframes/inHome/Liner.vue";
 export default {
-  components: {
-    MicleBird,
-    Liner,
-  },
+  components: {},
   props: ["url"],
   data() {
     return {
