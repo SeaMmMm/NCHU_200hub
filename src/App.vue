@@ -8,20 +8,20 @@
 </template>
 
 <script>
-import 'animate.css'
+import "animate.css";
 
 export default {
-  name: 'App',
+  name: "App",
   computed: {
     isDarkMode() {
-      return this.$store.getters.isDarkMode
+      return this.$store.getters.isDarkMode;
     },
   },
   mounted() {
-    const isDarkMode = this.$store.getters.isDarkMode
-    document.body.style.background = isDarkMode ? '#212c4f' : '#f8f9fa'
+    const isDarkMode = this.$store.getters.isDarkMode;
+    document.body.style.background = isDarkMode ? "#212c4f" : "#f8f9fa";
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -31,25 +31,26 @@ export default {
 */
 
 @font-face {
-  font-family: 'HanziPen SC';
-  src: url('@/assets/hanzipen-sc.ttf') format('truetype');
+  font-family: "HanziPen SC";
+  src: url("@/assets/hanzipen-sc.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'LingWai SC';
-  src: url('@/assets/dank-mono-italic.ttf') format('truetype');
+  font-family: "LingWai SC";
+  src: url("@/assets/dank-mono-italic.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Cascadia Code';
-  src: url('@/assets/dank-mono-italic.ttf') format('truetype');
+  font-family: "Cascadia Code";
+  src: url("@/assets/dank-mono-italic.ttf") format("truetype");
 }
 
-@import '@/global-styles/colors.scss';
-@import '@/global-styles/typography.scss';
+@import "@/global-styles/colors.scss";
+@import "@/global-styles/typography.scss";
 * {
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   scrollbar-width: none;
   border: none;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {
@@ -174,7 +175,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -206,7 +207,7 @@ h1.light {
 }
 
 li {
-  font-family: 'Cascadia Code';
+  font-family: "Cascadia Code";
   font-weight: 400;
   background: #0052d4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -352,8 +353,8 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .Coding {
-  font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -403,22 +404,22 @@ a {
     margin-top: 50px;
     color: #1b7fbd;
     font-weight: 700;
-    font-family: 'HanziPen SC';
+    font-family: "HanziPen SC";
   }
 
   p {
     text-align: left;
     font-size: 16px;
     color: #537791;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   a {
     text-decoration: none !important;
     font-weight: 600 !important;
     color: #1e2a78;
-    font-family: 'Cascadia Code';
+    font-family: "Cascadia Code";
   }
 
   blockquote {
@@ -438,7 +439,7 @@ a {
 
   code {
     font-size: 17px;
-    font-family: 'Cascadia Code';
+    font-family: "Cascadia Code";
     font-weight: 500;
   }
 
@@ -484,8 +485,8 @@ a {
   }
 
   /* Theme */
-  code[class*='hljs'],
-  pre[class*='hljs'] {
+  code[class*="hljs"],
+  pre[class*="hljs"] {
     border-radius: 16px;
     text-align: left;
     white-space: pre;
@@ -510,17 +511,17 @@ a {
     }
   }
 
-  code[class*='hljs']::-moz-selection,
-  pre[class*='hljs']::-moz-selection,
-  code[class*='hljs'] ::-moz-selection,
-  pre[class*='hljs'] ::-moz-selection {
+  code[class*="hljs"]::-moz-selection,
+  pre[class*="hljs"]::-moz-selection,
+  code[class*="hljs"] ::-moz-selection,
+  pre[class*="hljs"] ::-moz-selection {
     background: #363636;
   }
 
-  code[class*='hljs']::selection,
-  pre[class*='hljs']::selection,
-  code[class*='hljs'] ::selection,
-  pre[class*='hljs'] ::selection {
+  code[class*="hljs"]::selection,
+  pre[class*="hljs"]::selection,
+  code[class*="hljs"] ::selection,
+  pre[class*="hljs"] ::selection {
     background: #363636;
   }
 
@@ -530,7 +531,7 @@ a {
     padding: 0.1em;
   }
 
-  pre[class*='markdown-body'] {
+  pre[class*="markdown-body"] {
     overflow: auto;
     position: relative;
     margin: 0.5em 0;
@@ -543,7 +544,7 @@ a {
     color: #fd9170;
   }
 
-  [class*='markdown-body'] .namespace {
+  [class*="markdown-body"] .namespace {
     opacity: 0.7;
   }
 
