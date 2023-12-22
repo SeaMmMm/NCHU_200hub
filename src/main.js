@@ -13,7 +13,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 NetlifyIdentityWidget.init()
 
 export const auth = new GoTrue({
-  APIUrl: 'https://nchu200hub.netlify.app/.netlify/identity',
+  APIUrl: 'https://mccs.netlify.app/.netlify/identity',
   setCookie: true,
 })
 
